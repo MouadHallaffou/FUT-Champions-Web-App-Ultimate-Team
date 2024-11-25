@@ -14,15 +14,173 @@
     <title>Ultimate Team</title>
   </head>
   <body>
-    <section>
-      <div></div>
+    <!--  -->
+    <section class="formation-section">
+        
+        <div class="terrain-image">
+            <div closs="logo-application">
+                 
+            <div>
+                <img src="assets/images/terain.svg" alt="stadium_background">
+            </div>
+        </div>
 
-      <div></div>
-    </section>
+            <div class="player-group">
+                <div class="attaquant-group">
+                   <div class="attaquant">
+                    <img src="assets/images/badge_gold.webp" alt="badge_gold" srcset="">
+                   </div>
+                   <div class="attaquant">
+                    <img src="assets/images/badge_gold.webp" alt="badge_gold" srcset="">
+                   </div>
+                   <div class="attaquant">
+                    <img src="assets/images/badge_gold.webp" alt="badge_gold" srcset="">
+                   </div>
+                </div>
+                <div class="milieu-group">
+                    <div class="milieu">
+                        <img src="assets/images/badge_gold.webp" alt="badge_gold" srcset="">
+                       </div>
+                       <div class="milieu">
+                        <img src="assets/images/badge_gold.webp" alt="badge_gold" srcset="">
+                       </div>
+                       <div class="milieu">
+                        <img src="assets/images/badge_gold.webp" alt="badge_gold" srcset="">
+                       </div>
+                </div>
+                <div class="defenseur-group">
+                   <img src="assets/images/defenseur.svg" alt="defenseur">
+                </div>
+                 <div class="gardient-group">
+                    <div class="gardient">
+                        <img src="assets/images/gardien.svg" alt="gardien">
+                    </div>
+                 </div>
+            </div>
+          
+        </div>
 
-    <section>
-      <div></div>
+        <div class="formation-form" id="playerForm">
+            <form action="">
+                <h2 class="titreFormulaire">Ajouter un joueur</h2>
+        
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="formation">Formation:</label>
+                        <select id="formation" name="formation" class="form-control">
+                            <option value="4-3-3" selected>4-3-3</option>
+                            <option value="4-4-2">4-4-2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Nom du joueur:</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Entrez le nom du joueur">
+                    </div>
+                </div>
+        
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="photo">Photo du joueur:</label>
+                        <input type="file" id="photo" name="photo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="position">Position:</label>
+                        <select id="position" name="position" class="form-control">
+                            <option value="" selected>Selectionner la position du joueur</option>
+                            <option value="GK">GK</option>
+                            <option value="CB">CB</option>
+                            <option value="LB">LB</option>
+                            <option value="RB">RB</option>
+                            <option value="CM">CM</option>
+                            <option value="LW">LW</option>
+                            <option value="RW">RW</option>
+                            <option value="ST">ST</option>
+                        </select>
+                    </div>
+                </div>
+        
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nationality">Nationalité:</label>
+                        <input type="text" id="nationality" name="nationality" class="form-control" placeholder="Entrez la nationalité">
+                    </div>
+                    <div class="form-group">
+                        <label for="nationality">Nationalité:</label>
+                        <input type="text" id="nationality" name="nationality" class="form-control" placeholder="Entrez la nationalité">
+                    </div>
+                </div>
+        
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="drapeau">Drapeau:</label>
+                        <input type="file" id="drapeau" name="drapeau" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="club">Club:</label>
+                        <input type="text" id="club" name="club" class="form-control" placeholder="Entrez le nom du club">
+                    </div>
+                </div>
+        
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="logo">logo du club:</label>
+                        <input type="file" id="logo" name="logo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Note du joueur:</label>
+                        <input type="number" id="rating" name="rating" class="form-control" placeholder="Entrez la note du joueur">
+                    </div>
+                </div>
+        
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pace">Vitesse:</label>
+                        <input type="number" id="pace" name="pace" class="form-control" placeholder="Entrez la vitesse du joueur">
+                    </div>
+                    <div class="form-group">
+                        <label for="shooting">Tir:</label>
+                        <input type="number" id="shooting" name="shooting" class="form-control" placeholder="Entrez la note du tir">
+                    </div>
+                </div>
+        
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="passing">Passes:</label>
+                        <input type="number" id="passing" name="passing" class="form-control" placeholder="Entrez la note des passes">
+                    </div>
+                    <div class="form-group">
+                        <label for="dribbling">Dribbles:</label>
+                        <input type="number" id="dribbling" name="dribbling" class="form-control" placeholder="Entrez la note des dribbles">
+                    </div>
+                </div>
+        
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="defending">Défense:</label>
+                        <input type="number" id="defending" name="defending" class="form-control" placeholder="Entrez la note de défense">
+                    </div>
+                    <div class="form-group">
+                        <label for="physical">Physique:</label>
+                        <input type="number" id="physical" name="physical" class="form-control" placeholder="Entrez la note du physique">
+                    </div>
+                </div>
+                <div class="button_ajouter">
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+                </div>
+            </form>
+        </div>    
+
     </section>
+      
+      <!-- Changement -->
+    <section class="change-section-parent">
+    <div class="change-section">
+        <div class="change-content">
+          <h1>Changement</h1>
+        </div>
+    </div>
+    </section>
+      
     <script src="./js/main.js"></script>
   </body>
 </html>
