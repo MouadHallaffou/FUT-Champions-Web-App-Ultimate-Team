@@ -35,7 +35,6 @@ body {
     justify-content: space-around;
 }
 
-/* Image de fond dans la section formation */
 .formation-section .terrain-image {
     width: 60%;
     display: flex;
@@ -45,63 +44,120 @@ body {
     position: relative;
 }
 
-.formation-section .terrain-image img {
+.formation-section .stadium_background img {
     max-width: 100%;
-    filter: brightness(50%); 
+    filter: brightness(50%);
     height: max-content;
 }
 
-.player-group{
+.player-group {
     position: absolute;
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
     width: 100%;
-    height:100%;
+    height: 100%;
     z-index: 1;
+    gap: 3.5rem;
 }
 
-.player-group .attaquant-group{
+/* Groupes de joueurs */
+.player-group > div {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    gap: 14rem;
 }
-.player-group .milieu-group{
+
+.player-group > .attaquant-group { gap: 14rem; }
+.player-group > .milieu-group { gap: 8rem; }
+.player-group > .defenseur-group { gap: 10rem; }
+.player-group > .gardient-group { gap: 10rem; }
+
+/* Cartes des joueurs */
+.player-group .attaquant-group .attaquant,
+.player-group .milieu-group .milieu,
+.player-group .defenseur-group .defenseur,
+.player-group .gardient-group .gardient {
+    width: 10rem;
+    height: 12rem;
+    background-image: url(../assets/images/badge_gold.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 1.5rem;
+}
+
+.player-group .attaquant-group .attaquant span,
+.player-group .milieu-group .milieu span,
+.player-group .defenseur-group .defenseur span,
+.player-group .gardient-group .gardient span,
+.player-group .attaquant-group .attaquant p,
+.player-group .milieu-group .milieu p,
+.player-group .defenseur-group .defenseur p,
+.player-group .gardient-group .gardient p {
+    font-size: 0.6rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Informations principales */
+.player-group .attaquant-group .attaquant .top-info-player,
+.player-group .milieu-group .milieu .top-info-player,
+.player-group .defenseur-group .defenseur .top-info-player,
+.player-group .gardient-group .gardient .top-info-player {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.5rem;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+}
+
+/* Profil et informations */
+.player-group .attaquant-group .profile-attaquant-player,
+.player-group .milieu-group .profile-milieu-player,
+.player-group .defenseur-group .profile-defenseur-player,
+.player-group .gardient-group .profile-gardient-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-group .attaquant-group .attaquant .information-player,
+.player-group .milieu-group .milieu .information-player,
+.player-group .defenseur-group .defenseur .information-player,
+.player-group .gardient-group .gardient .information-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Statistiques */
+.player-group .attaquant-group .attaquant .information-player .statistiques-player,
+.player-group .milieu-group .milieu .information-player .statistiques-player,
+.player-group .defenseur-group .defenseur .information-player .statistiques-player,
+.player-group .gardient-group .gardient .information-player .statistiques-player {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    gap: 14rem;
+    gap: 0.2rem;
 }
 
-.player-group .milieu-group :nth-child(2){
-    margin-top: 2rem;
-}
-
-.player-group .defenseur-group{
+/* Logos */
+.player-group .attaquant-group .attaquant .les-logos-player,
+.player-group .milieu-group .milieu .les-logos-player,
+.player-group .defenseur-group .defenseur .les-logos-player,
+.player-group .gardient-group .gardient .les-logos-player {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    gap: 12rem;
-}
-.player-group .defenseur-group :nth-child(2),
-.player-group .defenseur-group :nth-child(3){
-    margin-top: 6rem;
+    gap: 1rem;
 }
 
-.player-group .gardient-group{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.player-group img{
-    width: 9rem;
-    height: 9rem;
-}
 
 /* Formulaire */
 .formation-section .formation-form {
@@ -146,7 +202,7 @@ label {
 
 input[type="text"],
 input[type="number"],
-input[type="file"],
+input[type="url"],
 select {
     width: 100%;
     padding: 1rem 1.5rem;
@@ -195,16 +251,18 @@ button[type="submit"]:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 .change-section {
-    height: 15vh; 
+    height: auto; 
     width: 94%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.8);
+    flex-wrap: wrap;
     border-radius: 10px;
     position: relative;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 .change-section img{
     width: 9rem; 
@@ -214,8 +272,10 @@ button[type="submit"]:hover {
 .change-section .changement-content{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 2rem;
 }
+
 .change-section .changement-content .attaquant-changement-group,
 .change-section .changement-content .milieu-changement-group,
 .change-section .changement-content .defenseur-changement-group,
