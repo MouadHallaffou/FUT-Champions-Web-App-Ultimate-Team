@@ -18,10 +18,13 @@
 /* Structure de la page */
 body {
     font-family: "Roboto", serif;
+}
+
+.container {
     background-image: url(../assets/images/stadium_background.webp);
     background-size: cover;
     background-attachment: fixed;
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -42,12 +45,11 @@ body {
     align-items: center;
     overflow: hidden;
     position: relative;
-}
-
-.formation-section .stadium_background img {
-    max-width: 100%;
-    filter: brightness(50%);
-    height: max-content;
+    background-image: url(../assets/images/terain.svg);
+    background-repeat: no-repeat;
+    background-size: contain; 
+    background-position: center; 
+    background-clip: content-box; 
 }
 
 .player-group {
@@ -55,8 +57,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: 100%;
     z-index: 1;
     gap: 3.5rem;
 }
@@ -69,10 +69,9 @@ body {
     align-items: center;
 }
 
-.player-group > .attaquant-group { gap: 14rem; }
+.player-group > .attaquant-group { gap: 10rem; }
 .player-group > .milieu-group { gap: 8rem; }
-.player-group > .defenseur-group { gap: 10rem; }
-.player-group > .gardient-group { gap: 10rem; }
+.player-group > .defenseur-group { gap: 8rem; }
 
 /* Cartes des joueurs */
 .player-group .attaquant-group .attaquant,
@@ -157,7 +156,6 @@ body {
     flex-direction: row;
     gap: 1rem;
 }
-
 
 /* Formulaire */
 .formation-section .formation-form {
@@ -285,4 +283,33 @@ button[type="submit"]:hover {
     flex-direction: row;
     gap: 2rem;
 }
-  
+ 
+/* Responsive design */
+@media (max-width: 768px) {
+
+    .formation-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        height: auto;
+    }
+
+    .formation-section .terrain-image {
+        width: 100%;
+    }
+
+    .formation-section .formation-form {
+        width: 90%;
+    }
+
+    .change-section-parent {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .change-section {
+        width: 90%;
+    }
+}
+
