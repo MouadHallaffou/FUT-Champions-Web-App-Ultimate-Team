@@ -18,9 +18,6 @@
 /* Structure de la page */
 body {
     font-family: "Roboto", serif;
-}
-
-.container {
     background-image: url(../assets/images/stadium_background.webp);
     background-size: cover;
     background-attachment: fixed;
@@ -283,6 +280,80 @@ button[type="submit"]:hover {
     flex-direction: row;
     gap: 2rem;
 }
+
+
+.attaquant-changement, .gardient-changement{
+    width: 10rem;
+    height: 12rem;
+    background-image: url(../assets/images/badge_gold.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 1.5rem;
+}
+
+
+
+
+
+
+
+
+.attaquant-changement span,
+.attaquant-changement p{
+    font-size: 0.6rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Informations principales */
+.attaquant-changement .top-info-player{
+    display: flex;
+    flex-direction: column;
+    line-height: 0.5rem;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+}
+
+/* Profil et informations */
+.attaquant-changement .profile-attaquant-player{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.attaquant-changement .information-player{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Statistiques */
+.attaquant-changement .information-player .statistiques-player {
+    display: flex;
+    flex-direction: row;
+    gap: 0.2rem;
+}
+
+/* Logos */
+.attaquant-changement .les-logos-player {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+
+
+
+
+
+
  
 /* Responsive design */
 @media (max-width: 768px) {
