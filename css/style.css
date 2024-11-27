@@ -248,6 +248,7 @@ button[type="submit"]:hover {
     align-items: center;
     flex-wrap: wrap;
 }
+
 .change-section {
     height: auto; 
     width: 94%;
@@ -259,6 +260,7 @@ button[type="submit"]:hover {
     position: relative;
     background-color: rgba(255, 255, 255, 0.8);
 }
+
 .change-section img{
     width: 9rem; 
     height:12rem;
@@ -281,8 +283,8 @@ button[type="submit"]:hover {
     gap: 2rem;
 }
 
-
-.attaquant-changement, .gardient-changement{
+.attaquant-changement,
+.gardient-changement{
     width: 10rem;
     height: 12rem;
     background-image: url(../assets/images/badge_gold.webp);
@@ -295,22 +297,18 @@ button[type="submit"]:hover {
     padding-top: 1.5rem;
 }
 
-
-
-
-
-
-
-
 .attaquant-changement span,
-.attaquant-changement p{
+.attaquant-changement p,
+.gardient-changement span,
+.gardient-changement p{
     font-size: 0.6rem;
     text-align: center;
     font-weight: bold;
 }
 
 /* Informations principales */
-.attaquant-changement .top-info-player{
+.attaquant-changement .top-info-player, 
+.gardient-changement .top-info-player{
     display: flex;
     flex-direction: column;
     line-height: 0.5rem;
@@ -320,14 +318,16 @@ button[type="submit"]:hover {
 }
 
 /* Profil et informations */
-.attaquant-changement .profile-attaquant-player{
+.attaquant-changement .profile-attaquant-player, 
+.gardient-changement .profile-gardient-player{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.attaquant-changement .information-player{
+.attaquant-changement .information-player, 
+.gardient-changement .information-player{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -335,25 +335,20 @@ button[type="submit"]:hover {
 }
 
 /* Statistiques */
-.attaquant-changement .information-player .statistiques-player {
+.attaquant-changement .information-player .statistiques-player, 
+.gardient-changement .information-player .statistiques-player{
     display: flex;
     flex-direction: row;
     gap: 0.2rem;
 }
 
 /* Logos */
-.attaquant-changement .les-logos-player {
+.attaquant-changement .les-logos-player, 
+.gardient-changement .les-logos-player{
     display: flex;
     flex-direction: row;
     gap: 1rem;
 }
-
-
-
-
-
-
-
  
 /* Responsive design */
 @media (max-width: 768px) {
