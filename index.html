@@ -20,7 +20,7 @@
 
             <!-- <div closs="logo-application">
             </div>     -->
-        
+
             <div class="player-group">
                 <div class="attaquant-group">
                     
@@ -185,6 +185,7 @@
                     </div>
 
                     </div>
+
                 </div>
               
                 <div class="milieu-group">
@@ -242,7 +243,7 @@
 
                     </div>
 
-                    <div class="milieu">
+                    <div class="milieu" id="milieu-position">
                         <div class="top-info-player">
                             <div class="position-player">
                                 <span>CF</span>
@@ -406,7 +407,7 @@
                         </div>
                 </div>
             
-                <div class="defenseur">
+                <div class="defenseur" id="milieu-defensseur">
                         <div class="top-info-player">
                             <div class="position-player">
                                 <span>RB</span>
@@ -459,7 +460,7 @@
                         </div>
                 </div>
                 
-                <div class="defenseur">
+                <div class="defenseur" id="milieu-defensseur">
                         <div class="top-info-player">
                             <div class="position-player">
                                 <span>LB</span>
@@ -638,18 +639,47 @@
                     </div>
                     <div class="form-group">
                         <label for="name">Nom du joueur:</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="Entrez le nom du joueur">
+                        <input type="text" id="namePlayer" name="name" value="" class="form-control" placeholder="Entrez le nom du joueur">
                     </div>
                 </div>
         
                 <div class="form-row">
                     <div class="form-group">
                         <label for="photo">Photo du joueur:</label>
-                        <input type="url" id="photo" name="photo" class="form-control" placeholder="URL de la photo du joueur">
+                        <input type="url" id="photoPlayer" name="photo" class="form-control" placeholder="URL de la photo du joueur">
                     </div>
                     <div class="form-group">
+                        <label for="nationality">Nationalité:</label>
+                        <input type="text" id="nationalityPlayer" name="nationality" class="form-control" placeholder="Entrez la nationalité">
+                    </div>   
+                </div>
+        
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="drapeau">Drapeau:</label>
+                        <input type="url" id="drapeauPlayer" name="drapeau" class="form-control" placeholder="URL du drapeau">
+                    </div>
+                    <div class="form-group">
+                        <label for="club">Club:</label>
+                        <input type="text" id="clubPlayer" name="club" class="form-control" placeholder="Entrez le nom du club">
+                    </div>
+                </div>
+        
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="logo">logo du club:</label>
+                        <input type="url" id="logoPlayer" name="logo" class="form-control" placeholder="URL du logo du club">
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Note globale:</label>
+                        <input type="number" id="ratingPlayers" name="rating" class="form-control" placeholder="Entrez la Note globale">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
                         <label for="position">Position:</label>
-                        <select id="position" name="position" class="form-control">
+                        <select id="positionPlayer" name="position" class="form-control">
                             <option value="" selected>Selectionner la position du joueur</option>
                             <option value="GK">GK</option>
                             <option value="CB">CB</option>
@@ -664,72 +694,63 @@
                 </div>
         
                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="nationality">Nationalité:</label>
-                        <input type="text" id="nationality" name="nationality" class="form-control" placeholder="Entrez la nationalité">
-                    </div>
-                    <div class="form-group">
-                        <label for="nationality">Nationalité:</label>
-                        <input type="text" id="nationality" name="nationality" class="form-control" placeholder="Entrez la nationalité">
-                    </div>
-                </div>
-        
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="drapeau">Drapeau:</label>
-                        <input type="url" id="drapeau" name="drapeau" class="form-control" placeholder="URL du drapeau">
-                    </div>
-                    <div class="form-group">
-                        <label for="club">Club:</label>
-                        <input type="text" id="club" name="club" class="form-control" placeholder="Entrez le nom du club">
-                    </div>
-                </div>
-        
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="logo">logo du club:</label>
-                        <input type="url" id="logo" name="logo" class="form-control" placeholder="URL du logo du club">
-                    </div>
-                    <div class="form-group">
-                        <label for="rating">Note du joueur:</label>
-                        <input type="number" id="rating" name="rating" class="form-control" placeholder="Entrez la note du joueur">
-                    </div>
-                </div>
-        
-                <div class="form-row">
-                    <div class="form-group">
+                    <div class="form-group form-group-player" style="display: flex;">
                         <label for="pace">Vitesse:</label>
-                        <input type="number" id="pace" name="pace" class="form-control" placeholder="Entrez la vitesse du joueur">
+                        <input type="number" id="pacePlayer" name="pace" class="form-control" placeholder="Entrez la vitesse du joueur">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group-gk" style="display: none;">
+                        <label for="diving">Plongée:</label>
+                        <input type="number" id="divingGK" name="diving" class="form-control" placeholder="Entrez la note de plongée" >
+                    </div>
+                    <div class="form-group form-group-player" style="display: flex;">
                         <label for="shooting">Tir:</label>
-                        <input type="number" id="shooting" name="shooting" class="form-control" placeholder="Entrez la note du tir">
+                        <input type="number" id="shootingPlayer" name="shooting" class="form-control" placeholder="Entrez la note du tir">
+                    </div>
+                    <div class="form-group-gk" style="display: none;">
+                        <label for="handling">Manipulation:</label>
+                        <input type="number" id="handlingGK" name="handling" class="form-control" placeholder="Entrez la note de manipulation">
                     </div>
                 </div>
         
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="form-group form-group-player" style="display: flex;">
                         <label for="passing">Passes:</label>
-                        <input type="number" id="passing" name="passing" class="form-control" placeholder="Entrez la note des passes">
+                        <input type="number" id="passingPlayer" name="passing" class="form-control" placeholder="Entrez la note des passes">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group-gk" style="display: none;">
+                        <label for="kicking">Dégagement:</label>
+                        <input type="number" id="kickingGK" name="kicking" class="form-control" placeholder="Entrez la note de dégagement">
+                    </div>
+                    <div class="form-group form-group-player" style="display: flex;">
                         <label for="dribbling">Dribbles:</label>
-                        <input type="number" id="dribbling" name="dribbling" class="form-control" placeholder="Entrez la note des dribbles">
+                        <input type="number" id="dribblingPlayer" name="dribbling" class="form-control" placeholder="Entrez la note des dribbles">
+                    </div>
+                    <div class="form-group-gk" style="display: none;">
+                        <label for="reflexes">Réflexes:</label>
+                        <input type="number" id="reflexesGK" name="reflexes" class="form-control" placeholder="Entrez la note des réflexes">
                     </div>
                 </div>
         
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="form-group form-group-player" style="display: flex;">
                         <label for="defending">Défense:</label>
-                        <input type="number" id="defending" name="defending" class="form-control" placeholder="Entrez la note de défense">
+                        <input type="number" id="defendingPlayer" name="defending" class="form-control" placeholder="Entrez la note de défense">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group-gk" style="display: none;">
+                        <label for="speed">Vitesse:</label>
+                        <input type="number" id="speedGK" name="speed" class="form-control" placeholder="Entrez la vitesse">
+                    </div>
+                    <div class="form-group form-group-player" style="display: flex;">
                         <label for="physical">Physique:</label>
-                        <input type="number" id="physical" name="physical" class="form-control" placeholder="Entrez la note du physique">
+                        <input type="number" id="physicalPlayer" name="physical" class="form-control" placeholder="Entrez la note du physique">
+                    </div>
+                    <div class="form-group-gk" style="display: none;">
+                        <label for="positioning">Positionnement:</label>
+                        <input type="number" id="positioningGK" name="positioning" class="form-control" placeholder="Entrez la note de positionnement">
                     </div>
                 </div>
                 <div class="button_ajouter">
-                <button type="submit" class="btn btn-primary">Ajouter</button>
+                <button type="submit" class="btnSubmit" id="btnAjoutPlayer">Ajouter</button>
                 </div>
             </form>
         </div>    
@@ -739,9 +760,8 @@
     <!-- Changement -->
     <div class="change-section-parent">
      <div class="change-section">
-        <div class="changement-content">
+        <div class="changement-content" id="attaquant-changement-group">
             <div class="attaquant-changement-group">
-
                 <div class="attaquant-changement">
                         <div class="top-info-player">
                                 <div class="position-player">
@@ -793,7 +813,6 @@
                                 </div>
                             </div>
                         </div>
-
 
                 </div>
                 

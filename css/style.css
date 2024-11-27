@@ -21,7 +21,6 @@ body {
     background-image: url(../assets/images/stadium_background.webp);
     background-size: cover;
     background-attachment: fixed;
-    min-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -30,7 +29,6 @@ body {
 
 /* Section 1 : Formation */
 .formation-section {
-    height: 80vh;
     display: flex;
     justify-content: space-around;
 }
@@ -55,7 +53,7 @@ body {
     flex-direction: column;
     align-items: center;
     z-index: 1;
-    gap: 3.5rem;
+    gap: 2rem;
 }
 
 /* Groupes de joueurs */
@@ -70,13 +68,17 @@ body {
 .player-group > .milieu-group { gap: 8rem; }
 .player-group > .defenseur-group { gap: 8rem; }
 
+.defenseur-group #milieu-defensseur{
+    margin-top: 6rem;
+}
+
 /* Cartes des joueurs */
 .player-group .attaquant-group .attaquant,
 .player-group .milieu-group .milieu,
 .player-group .defenseur-group .defenseur,
 .player-group .gardient-group .gardient {
-    width: 10rem;
-    height: 12rem;
+    width: 10.5rem;
+    height: 11rem;
     background-image: url(../assets/images/badge_gold.webp);
     background-repeat: no-repeat;
     background-size: cover;
@@ -111,6 +113,10 @@ body {
     position: absolute;
     top: 2rem;
     left: 2rem;
+}
+
+#milieu-position{
+    margin-top: 8rem;
 }
 
 /* Profil et informations */
@@ -182,9 +188,8 @@ body {
     width: 100%; 
 }
 
-.form-group {
+.form-group , .form-group-gk{
     flex: 1;
-    display: flex;
     flex-direction: column;
 }
 
@@ -352,7 +357,6 @@ button[type="submit"]:hover {
  
 /* Responsive design */
 @media (max-width: 768px) {
-
     .formation-section {
         display: flex;
         flex-wrap: wrap;
@@ -366,6 +370,7 @@ button[type="submit"]:hover {
 
     .formation-section .formation-form {
         width: 90%;
+   
     }
 
     .change-section-parent {
@@ -378,4 +383,3 @@ button[type="submit"]:hover {
         width: 90%;
     }
 }
-
