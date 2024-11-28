@@ -1,21 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 :root {
-  --primary-color: #007bff;
-  --text-color: #343a40;
-  --bg-color: #f8f9fa;
-  --border-radius: 5px;
-  --transition: all 0.3s ease-in-out;
+    --primary-color: #007bff;
+    --text-color: #343a40;
+    --bg-color: #f8f9fa;
+    --border-radius: 5px;
+    --transition: all 0.3s ease-in-out;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-size: 10px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
 }
 
-/* Structure de la page */
 body {
     font-family: "Roboto", serif;
     background-image: url(../assets/images/stadium_background.webp);
@@ -26,9 +25,9 @@ body {
     justify-content: end;
 }
 
-/* Section 1 : Formation */
 .formation-section {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
 }
 
@@ -41,10 +40,8 @@ body {
     position: relative;
     background-image: url(../assets/images/terain.svg);
     background-repeat: no-repeat;
-    background-size: contain; 
-    background-position: center; 
-    background-clip: content-box; 
-    background-color: #454545;
+    background-size: contain;
+    background-position: center;
     border-radius: 6px;
 }
 
@@ -53,11 +50,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     z-index: 1;
-    gap: 2rem;
+    gap: 1rem;
 }
 
-/* Groupes de joueurs */
 .player-group > div {
     display: flex;
     flex-direction: row;
@@ -69,18 +66,12 @@ body {
 .player-group > .milieu-group { gap: 8rem; }
 .player-group > .defenseur-group { gap: 8rem; }
 
-.defenseur-group #milieu-defensseur{
-    margin-top: 6rem;
-}
-
-/* Cartes des joueurs */
-.player-group .attaquant-group .attaquant,
-.player-group .milieu-group .milieu,
-.player-group .defenseur-group .defenseur,
-.player-group .gardient-group .gardient {
+.player-group .attaquant,
+.player-group .milieu,
+.player-group .defenseur,
+.player-group .gardient {
     width: 10.5rem;
-    height: 11rem;
-    /* background-image: url(../assets/images/badge_gold.webp); */
+    height: 13rem;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -88,105 +79,112 @@ body {
     flex-direction: column;
     position: relative;
     padding-top: 1.5rem;
+    /* background-image: url(../assets/images/badge_gold.webp); */
 }
 
-.player-group .attaquant-group .attaquant span,
-.player-group .milieu-group .milieu span,
-.player-group .defenseur-group .defenseur span,
-.player-group .gardient-group .gardient span,
-.player-group .attaquant-group .attaquant p,
-.player-group .milieu-group .milieu p,
-.player-group .defenseur-group .defenseur p,
-.player-group .gardient-group .gardient p {
+.player-group .attaquant span,
+.player-group .milieu span,
+.player-group .defenseur span,
+.player-group .gardient span,
+.player-group .attaquant p,
+.player-group .milieu p,
+.player-group .defenseur p,
+.player-group .gardient p {
     font-size: 0.6rem;
     text-align: center;
     font-weight: bold;
 }
 
-/* Informations principales */
-.player-group .attaquant-group .attaquant .top-info-player,
-.player-group .milieu-group .milieu .top-info-player,
-.player-group .defenseur-group .defenseur .top-info-player,
-.player-group .gardient-group .gardient .top-info-player {
+.player-group .attaquant span,
+.player-group .milieu span,
+.player-group .defenseur span,
+.player-group .gardient span{
+    color: #258702;
+}
+
+.player-group .attaquant .top-info-player,
+.player-group .milieu .top-info-player,
+.player-group .defenseur .top-info-player,
+.player-group .gardient .top-info-player {
     display: flex;
     flex-direction: column;
     line-height: 0.5rem;
     position: absolute;
-    top: 2rem;
-    left: 2rem;
+    top: 1.8rem;
+    left: 1.4rem;
+    text-align: center;
 }
 
-#milieu-position{
-    margin-top: 8rem;
+.player-group .attaquant .top-info-player span,
+.player-group .milieu .top-info-player span,
+.player-group .defenseur .top-info-player span,
+.player-group .gardient .top-info-player  span{
+    font-size: .9rem;
+    line-height: 1.2rem;
 }
 
-/* Profil et informations */
-.player-group .attaquant-group .profile-attaquant-player,
-.player-group .milieu-group .profile-milieu-player,
-.player-group .defenseur-group .profile-defenseur-player,
-.player-group .gardient-group .profile-gardient-player {
+#milieu-position {
+    margin-top: 10rem;
+}
+
+.player-group .profile-attaquant-player,
+.player-group .profile-milieu-player,
+.player-group .profile-defenseur-player,
+.player-group .profile-gardient-player {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.player-group .attaquant-group .attaquant .information-player,
-.player-group .milieu-group .milieu .information-player,
-.player-group .defenseur-group .defenseur .information-player,
-.player-group .gardient-group .gardient .information-player {
+.player-group .information-player {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
 }
 
-/* Statistiques */
-.player-group .attaquant-group .attaquant .information-player .statistiques-player,
-.player-group .milieu-group .milieu .information-player .statistiques-player,
-.player-group .defenseur-group .defenseur .information-player .statistiques-player,
-.player-group .gardient-group .gardient .information-player .statistiques-player {
+.player-group .information-player .statistiques-player {
     display: flex;
     flex-direction: row;
     gap: 0.2rem;
 }
 
-/* Logos */
-.player-group .attaquant-group .attaquant .les-logos-player,
-.player-group .milieu-group .milieu .les-logos-player,
-.player-group .defenseur-group .defenseur .les-logos-player,
-.player-group .gardient-group .gardient .les-logos-player {
+.player-group .les-logos-player {
     display: flex;
     flex-direction: row;
     gap: 1rem;
 }
 
-/* Formulaire */
 .formation-section .formation-form {
     width: 30%;
-    display: flex;
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.9);
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-radius: 1rem;
-    overflow-y: auto;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .formation-section .formation-form .titreFormulaire {
     font-size: 2rem;
     font-weight: bold;
-    text-align: center;
     margin-bottom: 1rem;
-    color: #222; 
+    color: #222;
+    text-align: center;
 }
 
 .form-row {
     display: flex;
-    gap: 1.2rem; 
+    gap: 1.2rem;
     margin-bottom: 1.4rem;
-    width: 100%; 
+    width: 100%;
+}
+
+.form-group {
+    flex: 1;
 }
 
 .form-group , .form-group-gk{
@@ -247,8 +245,7 @@ button[type="submit"]:hover {
     transform: translateY(-2px);
 }
 
-/* Section 2 : Changement */
-.change-section-parent{
+.change-section-parent {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -256,27 +253,27 @@ button[type="submit"]:hover {
 }
 
 .change-section {
-    min-height: 14rem; 
-    width: 94%;
+    min-height: 14rem;
+    min-width: 95%;
     display: flex;
     flex-wrap: wrap;
     border-radius: 10px;
-    position: relative;
     background-color: rgba(54, 109, 41, 0.8);
+    padding: 1rem;
 }
 
-.change-section h2{
+.change-section h2 {
     font-size: 2rem;
     font-weight: bold;
     color: #fff;
 }
 
-.change-section img{
-    width: 9rem; 
-    height:12rem;
+.change-section img {
+    width: 9rem;
+    height: 12rem;
 }
 
-.change-section .changement-content{
+.change-section .changement-content {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -286,7 +283,7 @@ button[type="submit"]:hover {
 .change-section .changement-content .attaquant-changement-group,
 .change-section .changement-content .milieu-changement-group,
 .change-section .changement-content .defenseur-changement-group,
-.change-section .changement-content .gardient-changement-group{
+.change-section .changement-content .gardient-changement-group {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -294,9 +291,9 @@ button[type="submit"]:hover {
 }
 
 .attaquant-changement,
-.gardient-changement{
+.gardient-changement {
     width: 10rem;
-    height: 12rem;
+    height: 14rem;
     background-image: url(../assets/images/badge_gold.webp);
     background-repeat: no-repeat;
     background-size: cover;
@@ -310,15 +307,14 @@ button[type="submit"]:hover {
 .attaquant-changement span,
 .attaquant-changement p,
 .gardient-changement span,
-.gardient-changement p{
+.gardient-changement p {
     font-size: 0.6rem;
     text-align: center;
     font-weight: bold;
 }
 
-/* Informations principales */
-.attaquant-changement .top-info-player, 
-.gardient-changement .top-info-player{
+.attaquant-changement .top-info-player,
+.gardient-changement .top-info-player {
     display: flex;
     flex-direction: column;
     line-height: 0.5rem;
@@ -327,76 +323,99 @@ button[type="submit"]:hover {
     left: 2rem;
 }
 
-/* Profil et informations */
-.attaquant-changement .profile-attaquant-player, 
-.gardient-changement .profile-gardient-player{
+.attaquant-changement .profile-attaquant-player,
+.gardient-changement .profile-gardient-player {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.attaquant-changement .information-player, 
-.gardient-changement .information-player{
+.attaquant-changement .information-player,
+.gardient-changement .information-player {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
 }
 
-/* Statistiques */
-.attaquant-changement .information-player .statistiques-player, 
-.gardient-changement .information-player .statistiques-player{
+.attaquant-changement .information-player .statistiques-player,
+.gardient-changement .information-player .statistiques-player {
     display: flex;
     flex-direction: row;
     gap: 0.2rem;
 }
 
-/* Logos */
-.attaquant-changement .les-logos-player, 
-.gardient-changement .les-logos-player{
+.attaquant-changement .les-logos-player,
+.gardient-changement .les-logos-player {
     display: flex;
     flex-direction: row;
     gap: 1rem;
 }
- 
-/* Responsive design */
-@media (max-width: 768px) {
+
+@media (max-width: 1444px) {
     .formation-section {
-        display: flex;
-        align-items: center;
-        flex-wrap:wrap;
-        flex-direction: row;
-        gap: 2rem;
-        height: 200vh;
-    }
-
-    .formation-section .terrain-image {
-        width: 100%;   
-    }
-
-
-    .formation-section .formation-form {
-        width: 90%;
-    }
-
-    .change-section-parent {
-        flex-direction: column;
-        align-items: center;
         gap: 1rem;
     }
-
-    .change-section {
-        width: 90%;
+    .formation-section .terrain-image {
+        width: 55%;
+    }
+    .formation-section .formation-form {
+        width: 35%;
     }
 }
 
+@media (max-width: 1279px) {
+    .formation-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .formation-section .terrain-image {
+        width: 100%;
+        min-height: 800px;
+    }
+    .formation-section .formation-form {
+        width: 95%;
+    }
+    .player-group > .attaquant-group { gap: 16rem; }
+    .player-group > .milieu-group { gap: 16rem; }
+    .player-group > .defenseur-group { gap: 12rem; }
+    .player-group {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .formation-section .terrain-image {
+        min-height: 750px;
+    }
+    .player-group > .attaquant-group { gap: 8rem; }
+    .player-group > .milieu-group { gap: 5rem; }
+    .player-group > .defenseur-group { gap: 4rem; }
+}
+
+@media (max-width: 767px) {
+    .formation-section {
+        align-items: center;
+    }
+    .formation-section .terrain-image {
+        min-height: 610px;
+    }
+    .formation-section .formation-form,
+    .change-section {
+        width: 96%;
+    }
+    .player-group > .attaquant-group { gap: 0rem; }
+    .player-group > .milieu-group { gap: 0rem; }
+    .player-group > .defenseur-group { gap: 0rem; }
+}
+
 .delete-btn {
-    position: absolute;
-    cursor: pointer;
-    font-size: 1rem;
-    color: #f40404;
-    border: none;
-    right: 1rem;
-    background-color: transparent;
+  position: absolute;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #f40404;
+  border: none;
+  right: 1rem;
+  background-color: transparent;
 }

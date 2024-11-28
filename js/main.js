@@ -222,20 +222,17 @@ btnAjoutPlayer.addEventListener("click", (e) => {
         playerValue.physical = positioningGK.value.trim();
     }
 
-
     // if (!Object.values(playerValue).every(value => value !== "")) {
     //     alert('Veuillez remplir tous les champs obligatoires.');
     //     return;
     // }
 
-
     donner.push(playerValue);
     savePlayersToLocalStorage();
     displayPlayers();
 
-    console.log(playerValue);
+    // console.log(playerValue);
     
-
 });
 
 displayPlayers();
