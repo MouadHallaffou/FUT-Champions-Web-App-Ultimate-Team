@@ -44,6 +44,8 @@ body {
     background-size: contain; 
     background-position: center; 
     background-clip: content-box; 
+    background-color: #454545;
+    border-radius: 6px;
 }
 
 .player-group {
@@ -78,7 +80,7 @@ body {
 .player-group .gardient-group .gardient {
     width: 10.5rem;
     height: 11rem;
-    background-image: url(../assets/images/badge_gold.webp);
+    /* background-image: url(../assets/images/badge_gold.webp); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -257,7 +259,6 @@ button[type="submit"]:hover {
     min-height: 14rem; 
     width: 94%;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     border-radius: 10px;
     position: relative;
@@ -363,19 +364,20 @@ button[type="submit"]:hover {
 @media (max-width: 768px) {
     .formation-section {
         display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
+        align-items: center;
+        flex-wrap:wrap;
+        flex-direction: row;
         gap: 2rem;
-        height: auto;
+        height: 200vh;
     }
 
     .formation-section .terrain-image {
-        width: 100%;
+        width: 100%;   
     }
+
 
     .formation-section .formation-form {
         width: 90%;
-   
     }
 
     .change-section-parent {
