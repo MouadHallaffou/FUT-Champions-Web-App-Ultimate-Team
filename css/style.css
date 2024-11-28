@@ -24,7 +24,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: end;
-    gap: 1rem;
 }
 
 /* Section 1 : Formation */
@@ -255,15 +254,20 @@ button[type="submit"]:hover {
 }
 
 .change-section {
-    height: auto; 
+    min-height: 14rem; 
     width: 94%;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
     border-radius: 10px;
     position: relative;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(54, 109, 41, 0.8);
+}
+
+.change-section h2{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
 }
 
 .change-section img{
@@ -359,6 +363,7 @@ button[type="submit"]:hover {
 @media (max-width: 768px) {
     .formation-section {
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
         gap: 2rem;
         height: auto;
@@ -382,4 +387,14 @@ button[type="submit"]:hover {
     .change-section {
         width: 90%;
     }
+}
+
+.delete-btn {
+    position: absolute;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #f40404;
+    border: none;
+    right: 1rem;
+    background-color: transparent;
 }
