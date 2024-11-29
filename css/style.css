@@ -76,7 +76,7 @@ body {
 .player-group .milieu,
 .player-group .defenseur,
 .player-group .gardient {
-  width: 10.5rem;
+  width: 11rem;
   height: 13rem;
   background-repeat: no-repeat;
   background-size: cover;
@@ -88,6 +88,13 @@ body {
   background-image: url(../assets/images/badge_total_rush.webp);
 }
 
+.player-group .attaquant:hover,
+.player-group .milieu:hover,
+.player-group .defenseur:hover,
+.player-group .gardient:hover {
+  rotate: 360deug;
+}
+
 .player-group .attaquant span,
 .player-group .milieu span,
 .player-group .defenseur span,
@@ -96,17 +103,12 @@ body {
 .player-group .milieu p,
 .player-group .defenseur p,
 .player-group .gardient p {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   text-align: center;
   font-weight: bold;
-}
-
-.player-group .attaquant span,
-.player-group .milieu span,
-.player-group .defenseur span,
-.player-group .gardient span {
   color: #fcfefc;
 }
+
 
 .player-group .attaquant .top-info-player,
 .player-group .milieu .top-info-player,
@@ -152,7 +154,7 @@ body {
 
 .player-group .information-player h3 {
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .player-group .information-player .statistiques-player {
@@ -165,11 +167,6 @@ body {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-}
-
-.player-group .les-logos-player .club-log img {
-  width: 1rem;
-  height: 1rem;
 }
 
 .formation-section .formation-form {
@@ -358,12 +355,6 @@ button[type="submit"]:hover {
   justify-content: center;
 }
 
-.attaquant-changement .profile-attaquant-player img,
-.gardient-changement .profile-gardient-player img {
-  width: 5rem;
-  height: 5.4rem;
-}
-
 .attaquant-changement .information-player,
 .gardient-changement .information-player {
   display: flex;
@@ -473,7 +464,7 @@ button[type="submit"]:hover {
 .gardient-card .delete-btn,
 .player-card .delete-btn,
 .gardient-changement .delete-btn,
-.gardient-changement .delete-btn {
+.attaquant-changement .delete-btn {
   position: absolute;
   top: 10%;
   cursor: pointer;
