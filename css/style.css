@@ -1,85 +1,91 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 :root {
-    --primary-color: #007bff;
-    --text-color: #343a40;
-    --bg-color: #f8f9fa;
-    --border-radius: 5px;
-    --transition: all 0.3s ease-in-out;
+  --primary-color: #007bff;
+  --text-color: #343a40;
+  --bg-color: #f8f9fa;
+  --border-radius: 5px;
+  --transition: all 0.3s ease-in-out;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 10px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 10px;
 }
 
 body {
-    font-family: "Roboto", serif;
-    background-image: url(../assets/images/stadium_background.webp);
-    background-size: cover;
-    background-attachment: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
+  font-family: "Roboto", serif;
+  background-image: url(../assets/images/stadium_background.webp);
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
 .formation-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .formation-section .terrain-image {
-    width: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-    background-image: url(../assets/images/terain.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    border-radius: 6px;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  background-image: url(../assets/images/terain.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border-radius: 6px;
 }
 
 .player-group {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    gap: 1rem;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  gap: 1rem;
 }
 
 .player-group > div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.player-group > .attaquant-group { gap: 10rem; }
-.player-group > .milieu-group { gap: 8rem; }
-.player-group > .defenseur-group { gap: 8rem; }
+.player-group > .attaquant-group {
+  gap: 10rem;
+}
+.player-group > .milieu-group {
+  gap: 8rem;
+}
+.player-group > .defenseur-group {
+  gap: 8rem;
+}
 
 .player-group .attaquant,
 .player-group .milieu,
 .player-group .defenseur,
 .player-group .gardient {
-    width: 10.5rem;
-    height: 13rem;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    padding-top: 1.5rem;
-    /* background-image: url(../assets/images/badge_gold.webp); */
+  width: 10.5rem;
+  height: 13rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 1.5rem;
+  background-image: url(../assets/images/badge_total_rush.webp);
 }
 
 .player-group .attaquant span,
@@ -90,332 +96,389 @@ body {
 .player-group .milieu p,
 .player-group .defenseur p,
 .player-group .gardient p {
-    font-size: 0.6rem;
-    text-align: center;
-    font-weight: bold;
+  font-size: 0.6rem;
+  text-align: center;
+  font-weight: bold;
 }
 
 .player-group .attaquant span,
 .player-group .milieu span,
 .player-group .defenseur span,
-.player-group .gardient span{
-    color: #258702;
+.player-group .gardient span {
+  color: #fcfefc;
 }
 
 .player-group .attaquant .top-info-player,
 .player-group .milieu .top-info-player,
 .player-group .defenseur .top-info-player,
 .player-group .gardient .top-info-player {
-    display: flex;
-    flex-direction: column;
-    line-height: 0.5rem;
-    position: absolute;
-    top: 1.8rem;
-    left: 1.4rem;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  line-height: 0.5rem;
+  position: absolute;
+  top: 2rem;
+  left: 1.4rem;
+  text-align: center;
 }
 
 .player-group .attaquant .top-info-player span,
 .player-group .milieu .top-info-player span,
 .player-group .defenseur .top-info-player span,
-.player-group .gardient .top-info-player  span{
-    font-size: .9rem;
-    line-height: 1.2rem;
+.player-group .gardient .top-info-player span {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
 }
 
 #milieu-position {
-    margin-top: 10rem;
+  margin-top: 10rem;
 }
 
 .player-group .profile-attaquant-player,
 .player-group .profile-milieu-player,
 .player-group .profile-defenseur-player,
 .player-group .profile-gardient-player {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .player-group .information-player {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.player-group .information-player h3 {
+  color: #fff;
+  font-size: 0.9rem;
 }
 
 .player-group .information-player .statistiques-player {
-    display: flex;
-    flex-direction: row;
-    gap: 0.2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
 }
 
 .player-group .les-logos-player {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.player-group .les-logos-player .club-log img {
+  width: 1rem;
+  height: 1rem;
 }
 
 .formation-section .formation-form {
-    width: 30%;
-    padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
+  width: 30%;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .formation-section .formation-form .titreFormulaire {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #222;
-    text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #222;
+  text-align: center;
 }
 
 .form-row {
-    display: flex;
-    gap: 1.2rem;
-    margin-bottom: 1.4rem;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-bottom: 1.4rem;
+  width: 100%;
 }
 
 .form-group {
-    flex: 1;
+  flex: 1;
 }
 
-.form-group , .form-group-gk{
-    flex: 1;
-    flex-direction: column;
+.form-group,
+.form-group-gk {
+  flex: 1;
+  flex-direction: column;
 }
 
 label {
-    font-size: 14px;
-    color: #444;
-    margin-bottom: 5px;
-    font-weight: bold;
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 input[type="text"],
 input[type="number"],
 input[type="url"],
 select {
-    width: 100%;
-    padding: 1rem 1.5rem;
-    font-size: 1.4rem;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    background-color: #f9f9f9;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.4rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s;
 }
 
 input:focus,
 select:focus {
-    border-color: #3498db; 
-    outline: none;
+  border-color: #3498db;
+  outline: none;
 }
 
-.button_ajouter{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.button_ajouter {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-.button_ajouter button[type="submit"]{
-    margin-top: 20px;
-    padding: 12px 20px;
-    background-color: #28a745;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    align-self: center; 
+.button_ajouter button[type="submit"] {
+  margin-top: 2rem;
+  padding: 1.2rem 2rem;
+  background-color: #20a904;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  align-self: center;
+}
+
+.button_ajouter button[type="submit"] i {
+  font-size: 1.5rem;
+  color: #f40404;
+  transition: font-size 0.3s ease, color 0.3s ease;
+}
+
+.button_ajouter button[type="submit"]:hover i {
+  color: #ff6b6b;
 }
 
 button[type="submit"]:hover {
-    background-color: #218838;
-    transform: translateY(-2px);
+  background-color: #218838;
+  transform: translateY(-2px);
 }
 
 .change-section-parent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .change-section {
-    min-height: 14rem;
-    min-width: 95%;
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 10px;
-    background-color: rgba(54, 109, 41, 0.8);
-    padding: 1rem;
+  min-height: 14rem;
+  min-width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  background-color: rgba(54, 109, 41, 0.8);
+  padding: 1rem;
 }
 
 .change-section h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #fff;
-}
-
-.change-section img {
-    width: 9rem;
-    height: 12rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
 }
 
 .change-section .changement-content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .change-section .changement-content .attaquant-changement-group,
 .change-section .changement-content .milieu-changement-group,
 .change-section .changement-content .defenseur-changement-group,
 .change-section .changement-content .gardient-changement-group {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 2rem;
 }
 
 .attaquant-changement,
 .gardient-changement {
-    width: 10rem;
-    height: 14rem;
-    background-image: url(../assets/images/badge_gold.webp);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    padding-top: 1.5rem;
+  width: 11rem;
+  height: 14.5rem;
+  background-image: url(../assets/images/badge_total_rush.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 1.5rem;
+  line-height: 1.4rem;
 }
 
 .attaquant-changement span,
 .attaquant-changement p,
 .gardient-changement span,
 .gardient-changement p {
-    font-size: 0.6rem;
-    text-align: center;
-    font-weight: bold;
+  font-size: 0.75rem;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
 }
 
 .attaquant-changement .top-info-player,
 .gardient-changement .top-info-player {
-    display: flex;
-    flex-direction: column;
-    line-height: 0.5rem;
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  line-height: 0.9rem;
+  position: absolute;
+  top: 2.5rem;
+  left: 2rem;
+  font-size: 0.8rem;
 }
 
 .attaquant-changement .profile-attaquant-player,
 .gardient-changement .profile-gardient-player {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.attaquant-changement .profile-attaquant-player img,
+.gardient-changement .profile-gardient-player img {
+  width: 5rem;
+  height: 5.4rem;
 }
 
 .attaquant-changement .information-player,
 .gardient-changement .information-player {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .attaquant-changement .information-player .statistiques-player,
 .gardient-changement .information-player .statistiques-player {
-    display: flex;
-    flex-direction: row;
-    gap: 0.2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+}
+
+.attaquant-changement .information-player h3,
+.gardient-changement .information-player h3 {
+  color: #fff;
+  font-size: 0.9rem;
 }
 
 .attaquant-changement .les-logos-player,
 .gardient-changement .les-logos-player {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 
 @media (max-width: 1444px) {
-    .formation-section {
-        gap: 1rem;
-    }
-    .formation-section .terrain-image {
-        width: 55%;
-    }
-    .formation-section .formation-form {
-        width: 35%;
-    }
+  .formation-section {
+    gap: 1rem;
+  }
+  .formation-section .terrain-image {
+    width: 55%;
+  }
+  .formation-section .formation-form {
+    width: 35%;
+  }
 }
 
 @media (max-width: 1279px) {
-    .formation-section {
-        flex-direction: column;
-        align-items: center;
-    }
-    .formation-section .terrain-image {
-        width: 100%;
-        min-height: 800px;
-    }
-    .formation-section .formation-form {
-        width: 95%;
-    }
-    .player-group > .attaquant-group { gap: 16rem; }
-    .player-group > .milieu-group { gap: 16rem; }
-    .player-group > .defenseur-group { gap: 12rem; }
-    .player-group {
-        gap: 2rem;
-    }
+  .formation-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .formation-section .terrain-image {
+    width: 100%;
+    min-height: 800px;
+  }
+  .formation-section .formation-form {
+    width: 95%;
+  }
+  .player-group > .attaquant-group {
+    gap: 16rem;
+  }
+  .player-group > .milieu-group {
+    gap: 16rem;
+  }
+  .player-group > .defenseur-group {
+    gap: 12rem;
+  }
+  .player-group {
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 1024px) {
-    .formation-section .terrain-image {
-        min-height: 750px;
-    }
-    .player-group > .attaquant-group { gap: 8rem; }
-    .player-group > .milieu-group { gap: 5rem; }
-    .player-group > .defenseur-group { gap: 4rem; }
+  .formation-section .terrain-image {
+    min-height: 750px;
+  }
+  .player-group > .attaquant-group {
+    gap: 8rem;
+  }
+  .player-group > .milieu-group {
+    gap: 5rem;
+  }
+  .player-group > .defenseur-group {
+    gap: 4rem;
+  }
 }
 
 @media (max-width: 767px) {
-    .formation-section {
-        align-items: center;
-    }
-    .formation-section .terrain-image {
-        min-height: 610px;
-    }
-    .formation-section .formation-form,
-    .change-section {
-        width: 96%;
-    }
-    .player-group > .attaquant-group { gap: 0rem; }
-    .player-group > .milieu-group { gap: 0rem; }
-    .player-group > .defenseur-group { gap: 0rem; }
+  .formation-section {
+    align-items: center;
+  }
+  .formation-section .terrain-image {
+    min-height: 700px;
+  }
+  .formation-section .formation-form,
+  .change-section {
+    width: 96%;
+  }
+  .player-group {
+    gap: 0rem;
+  }
+  .player-group > .attaquant-group {
+    gap: 0rem;
+  }
+  .player-group > .milieu-group {
+    gap: 0rem;
+  }
+  .player-group > .defenseur-group {
+    gap: 0rem;
+  }
 }
 
-.delete-btn {
+.gardient-card .delete-btn,
+.player-card .delete-btn,
+.gardient-changement .delete-btn,
+.gardient-changement .delete-btn {
   position: absolute;
+  top: 10%;
   cursor: pointer;
-  font-size: 1rem;
-  color: #f40404;
+  color: red;
   border: none;
-  right: 1rem;
+  right: 15%;
   background-color: transparent;
 }
