@@ -78,6 +78,14 @@ body {
   position: relative;
   padding-top: 1.5rem;
   background-image: url(../assets/images/badge_total_rush.webp);
+  transition: all 0.2ms ease-in;
+}
+
+.player-group .attaquant:hover,
+.player-group .milieu:hover,
+.player-group .defenseur:hover,
+.player-group .gardient:hover {
+  filter: saturate(50%);
 }
 
 .player-group .attaquant:hover,
@@ -289,7 +297,7 @@ button[type="submit"]:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .change-section .changement-content .attaquant-changement-group,
