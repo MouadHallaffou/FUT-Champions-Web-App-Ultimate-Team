@@ -140,9 +140,8 @@ document.addEventListener("DOMContentLoaded", function () {
   btnAjoutPlayer.addEventListener("click", (e) => {
     e.preventDefault();
 
-
-    // if(!validationFormulaire()) return;
-    
+    if(!validationFormulaire())
+      return;
 
     if (donner.length >= 11) {
       alert("terrain plein.");
@@ -153,53 +152,147 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    // function validationFormulaire(){
-    //     let valid = true;
+// function validation de formulaire avec regulaires expressions
+    function validationFormulaire(){
+        let valid = true;
+        const playerValue = {
+            name: namePlayer.value.trim(),
+            photo: photoPlayer.value.trim(),
+            nationality: nationalityPlayer.value.trim(),
+            flag: drapeauPlayer.value.trim(),
+            club: clubPlayer.value.trim(),
+            logo: logoPlayer.value.trim(),
+            position: positionSelect.value.trim(),
+            rating: ratingPlayer.value.trim(),
+            pace: pacePlayer.value.trim(),
+            shooting: shootingPlayer.value.trim(),
+            passing: passingPlayer.value.trim(),
+            dribbling: dribblingPlayer.value.trim(),
+            defending: defendingPlayer.value.trim(),
+            physical: physicalPlayer.value.trim(),
+        };
+        if (playerValue.position === "GK") {
+            playerValue.pace = divingGK.value.trim();
+            playerValue.shooting = handlingGK.value.trim();
+            playerValue.passing = kickingGK.value.trim();
+            playerValue.dribbling = reflexesGK.value.trim();
+            playerValue.defending = speedGK.value.trim();
+            playerValue.physical = positioningGK.value.trim();
+        }
 
-    //     const playerValue = {
-    //         name: namePlayer.value.trim(),
-    //         photo: photoPlayer.value.trim(),
-    //         nationality: nationalityPlayer.value.trim(),
-    //         flag: drapeauPlayer.value.trim(),
-    //         club: clubPlayer.value.trim(),
-    //         logo: logoPlayer.value.trim(),
-    //         position: positionSelect.value.trim(),
-    //         rating: ratingPlayer.value.trim(),
-    //         pace: pacePlayer.value.trim(),
-    //         shooting: shootingPlayer.value.trim(),
-    //         passing: passingPlayer.value.trim(),
-    //         dribbling: dribblingPlayer.value.trim(),
-    //         defending: defendingPlayer.value.trim(),
-    //         physical: physicalPlayer.value.trim(),
-    //     };
+        const regExpress ={
+            nameRegex : /(^[a-zA-Z\s]{0,30}$)/,
+            urlregex:/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/,
+            statistiquesRegex:/^[0-9]{2}/,
+        }
+      ///////////////////////////////////////////////////////////////////////////
+      const erreurMessages = document.querySelectorAll('.erreur-message');
+      erreurMessages.forEach(msg => msg.style.display = 'none');
+      if (!regExpress.nameRegex.test(playerValue.name) || playerValue.name === "") {
+          valid = false;
+          namePlayer.style.border = "2px solid red";
+          document.querySelector('.erreur-message').style.display = "block"; 
+      } else {
+          namePlayer.style.border = "2px solid #20a904"; 
+      }
+      if (!regExpress.nameRegex.test(playerValue.name) || playerValue.name === "") {
+          valid = false;
+          namePlayer.style.border = "2px solid red";
+      } else {
+          namePlayer.style.border = "2px solid #20a904";
+      }
+      
+      if (!regExpress.nameRegex.test(playerValue.club) || playerValue.club === "") {
+          valid = false;
+          clubPlayer.style.border = "2px solid red";
+      } else {
+          clubPlayer.style.border = "2px solid #20a904";
+      }
+      
+      if (!regExpress.nameRegex.test(playerValue.nationality) || playerValue.nationality === "") {
+          valid = false;
+          nationalityPlayer.style.border = "2px solid red";
+      } else {
+          nationalityPlayer.style.border = "2px solid #20a904";
+      }
+      ///////////////////////////////////////////////////////////////////////////////////////////
+      if (!regExpress.urlregex.test(playerValue.photo) || playerValue.photo === "") {
+        valid = false;
+        photoPlayer.style.border = "2px solid red";
+        erreurMessage.style.display="block"
+      } else {
+        photoPlayer.style.border = "2px solid #20a904";
+      }
+      if (!regExpress.urlregex.test(playerValue.flag) || playerValue.flag === "") {
+        valid = false;
+        drapeauPlayer.style.border = "2px solid red";
+      } else {
+        drapeauPlayer.style.border = "2px solid #20a904";
+      }
+      if (!regExpress.urlregex.test(playerValue.logo) || playerValue.logo === "") {
+        valid = false;
+        logoPlayer.style.border = "2px solid red";
+      } else {
+        logoPlayer.style.border = "2px solid #20a904";
+      }
+      ////////////////////////////////////////////////////////////////////////////////////////
+      if (!regExpress.statistiquesRegex.test(playerValue.rating) || playerValue.rating === "" || playerValue.rating <=10 || playerValue.rating >100) {
+        valid = false;
+        ratingPlayer.style.border = "2px solid red";
+      } else {
+        ratingPlayer.style.border = "2px solid #20a904";
+      }
+      if (!regExpress.statistiquesRegex.test(playerValue.pace) || playerValue.pace === "" || playerValue.pace<=10 || playerValue.pace>100) {
+        valid = false;
+        pacePlayer.style.border = "2px solid red";
+        divingGK.style.border = "2px solid red";
+      } else {
+        pacePlayer.style.border = "2px solid #20a904";
+        divingGK.style.border = "2px solid #20a904";
+      }
+      if (!regExpress.statistiquesRegex.test(playerValue.shooting) || playerValue.shooting === "" || playerValue.shooting<=10 || playerValue.shooting>100) {
+        valid = false;
+        shootingPlayer.style.border = "2px solid red";
+        handlingGK.style.border = "2px solid red";
+      } else {
+        shootingPlayer.style.border = "2px solid #20a904";
+        handlingGK.style.border = "2px solid #20a904";
+      }
+      if (!regExpress.statistiquesRegex.test(playerValue.passing) || playerValue.passing === "" || playerValue.passing<=10 || playerValue.passing>100) {
+        valid = false;
+        passingPlayer.style.border = "2px solid red";
+        kickingGK.style.border = "2px solid red";
+      } else {
+        passingPlayer.style.border = "2px solid #20a904";
+        kickingGK.style.border = "2px solid #20a904";
+      }
+      if (!regExpress.statistiquesRegex.test(playerValue.dribbling) || playerValue.dribbling === "" || playerValue.dribbling<=10 || playerValue.dribbling>100) {
+        valid = false;
+        dribblingPlayer.style.border = "2px solid red";
+        reflexesGK.style.border = "2px solid red";
+      } else {
+        dribblingPlayer.style.border = "2px solid #20a904";
+        reflexesGK.style.border = "2px solid #20a904";
+      }
+      if (!regExpress.statistiquesRegex.test(playerValue.defending) || playerValue.defending === "" || playerValue.defending<=10 || playerValue.defending>100) {
+        valid = false;
+        defendingPlayer.style.border = "2px solid red";
+        speedGK.style.border = "2px solid red";
+      } else {
+        defendingPlayer.style.border = "2px solid #20a904";
+        speedGK.style.border = "2px solid #20a904";
+      }
+      if (!regExpress.statistiquesRegex.test(playerValue.physical) || playerValue.physical === "" || playerValue.physical<=10 || playerValue.physical>100) {
+        valid = false;
+        physicalPlayer.style.border = "2px solid red";
+        positioningGK.style.border = "2px solid red";
+      } else {
+        physicalPlayer.style.border = "2px solid #20a904";
+        positioningGK.style.border = "2px solid #20a904";
+      }
+       return valid;
+     }
 
-    //     if (playerValue.position === "GK") {
-    //         playerValue.pace = divingGK.value.trim();
-    //         playerValue.shooting = handlingGK.value.trim();
-    //         playerValue.passing = kickingGK.value.trim();
-    //         playerValue.dribbling = reflexesGK.value.trim();
-    //         playerValue.defending = speedGK.value.trim();
-    //         playerValue.physical = positioningGK.value.trim();
-    //     }
-
-    //     const regExpress ={
-    //         nameRegex : /(^[a-zA-Z\s]{0,30}$)/,
-    //         urlregex:/(?:http[s]?:\/\/.)?(?:www\.)?[-a-zA-Z0-9@%._\+~#=]{2,256}\.[a-z]{2,6}\b(?:[-a-zA-Z0-9@:%_\+.~#?&\/\/=]*)/gm,
-    //         statistiquesRegex:/^[0-9]{2}/,
-    //     }
-
-    //     if(!regExpress.nameRegex.test(playerValue.name) || !regExpress.nameRegex.test(playerValue.club) ||!regExpress.nameRegex.test(playerValue.nationality)){
-    //         valid = false;
-    //         namePlayer.style.border = 'red 2px solid'
-    //         clubPlayer.style.border = 'red 2px solid'
-    //         nationalityPlayer.style.border = 'red 2px solid'
-    //     } else{
-    //         valid = true;
-    //         namePlayer.style.border = 'green 2px solid'
-    //         clubPlayer.style.border = 'green 2px solid'
-    //         nationalityPlayer.style.border = 'green 2px solid'
-    //     }
-    //     }
 
 
 
@@ -261,10 +354,10 @@ document.addEventListener("DOMContentLoaded", function () {
     changementContent.innerHTML = "";
 
     donnerChangement.forEach((player, index) => {
-      const playerDiv = document.createElement("div");
-      playerDiv.classList.add("changement-content");
+      const affichageChangementplayer = document.createElement("div");
+      affichageChangementplayer.classList.add("changement-content");
       if (player.position === "GK") {
-        playerDiv.innerHTML += `
+        affichageChangementplayer.innerHTML += `
                     <div class="gardient-changement">
                         <div class="top-info-player">
                             <div class="position-player"><span>${player.position}</span></div>
@@ -291,7 +384,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <button class="delete-btn" onclick="deleteChangement(${index})"><em class="fas fa-trash"></em></button>
                     </div>`;
       } else {
-        playerDiv.innerHTML += `
+        affichageChangementplayer.innerHTML += `
                         <div class="attaquant-changement">
                         <div class="top-info-player">
                             <div class="position-player"><span>${player.position}</span></div>
@@ -318,12 +411,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         <button class="delete-btn" onclick="deleteChangement(${index})"><em class="fas fa-trash"></em></button>
                     </div>`;
       }
-      changementContent.appendChild(playerDiv);
+      changementContent.appendChild(affichageChangementplayer);
     });
   }
 
   window.deleteChangement = function (index) {
     donnerChangement.splice(index, 1);
+    savePlayersToLocalStorage();
     ChangementDisplay();
   };
 
@@ -331,9 +425,9 @@ document.addEventListener("DOMContentLoaded", function () {
   ChangementDisplay();
 });
 
-
-
-
+/////////////////////////////////////////////////////
+/////////////////// Drag end droooppp////////////////
+/////////////////////////////////////////////////////
 const attaquant = document.querySelector(".attaquant-group");
 document.addEventListener("DOMContentLoaded", function () {
   if (attaquant) {

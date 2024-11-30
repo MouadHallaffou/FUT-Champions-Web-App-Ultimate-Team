@@ -1,13 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-:root {
-  --primary-color: #007bff;
-  --text-color: #343a40;
-  --bg-color: #f8f9fa;
-  --border-radius: 5px;
-  --transition: all 0.3s ease-in-out;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -230,7 +222,7 @@ select {
 
 input:focus,
 select:focus {
-  border-color: #3498db;
+  border-color: #20a904;
   outline: none;
 }
 
@@ -323,6 +315,7 @@ button[type="submit"]:hover {
   position: relative;
   padding-top: 1.5rem;
   line-height: 1.4rem;
+  color: chartreuse;
 }
 
 .attaquant-changement span,
