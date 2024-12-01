@@ -77,7 +77,7 @@ body {
   flex-direction: column;
   position: relative;
   padding-top: 1.5rem;
-  background-image: url(../assets/images/badge_total_rush.webp);
+  background-image: url(../assets/images/badge_gold.webp);
   transition: all 0.2ms ease-in;
 }
 
@@ -85,14 +85,7 @@ body {
 .player-group .milieu:hover,
 .player-group .defenseur:hover,
 .player-group .gardient:hover {
-  filter: saturate(50%);
-}
-
-.player-group .attaquant:hover,
-.player-group .milieu:hover,
-.player-group .defenseur:hover,
-.player-group .gardient:hover {
-  rotate: 360deug;
+  filter: saturate(3);
 }
 
 .player-group .attaquant span,
@@ -106,9 +99,7 @@ body {
   font-size: 0.7rem;
   text-align: center;
   font-weight: bold;
-  color: #fcfefc;
 }
-
 
 .player-group .attaquant .top-info-player,
 .player-group .milieu .top-info-player,
@@ -135,6 +126,10 @@ body {
   margin-top: 10rem;
 }
 
+img {
+  filter: drop-shadow(2);
+}
+
 .player-group .profile-attaquant-player,
 .player-group .profile-milieu-player,
 .player-group .profile-defenseur-player,
@@ -153,7 +148,6 @@ body {
 }
 
 .player-group .information-player h3 {
-  color: #fff;
   font-size: 1rem;
 }
 
@@ -300,21 +294,11 @@ button[type="submit"]:hover {
   gap: 1.5rem;
 }
 
-.change-section .changement-content .attaquant-changement-group,
-.change-section .changement-content .milieu-changement-group,
-.change-section .changement-content .defenseur-changement-group,
-.change-section .changement-content .gardient-changement-group {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  gap: 2rem;
-}
-
 .attaquant-changement,
 .gardient-changement {
   width: 11rem;
-  height: 14.5rem;
-  background-image: url(../assets/images/badge_total_rush.webp);
+  height: 13rem;
+  background-image: url(../assets/images/badge_gold.webp);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -323,29 +307,32 @@ button[type="submit"]:hover {
   position: relative;
   padding-top: 1.5rem;
   line-height: 1.4rem;
-  color: chartreuse;
 }
 
 .attaquant-changement span,
 .attaquant-changement p,
 .gardient-changement span,
 .gardient-changement p {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-align: center;
   font-weight: bold;
-  color: #fff;
 }
 
 .attaquant-changement .top-info-player,
 .gardient-changement .top-info-player {
   display: flex;
   flex-direction: column;
-  text-align: center;
-  line-height: 0.9rem;
+  line-height: 0.5rem;
   position: absolute;
-  top: 2.5rem;
-  left: 2rem;
-  font-size: 0.8rem;
+  top: 2rem;
+  left: 1.4rem;
+  text-align: center;
+}
+
+.attaquant-changement .top-info-player span,
+.gardient-changement .top-info-player span {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
 }
 
 .attaquant-changement .profile-attaquant-player,
@@ -373,7 +360,6 @@ button[type="submit"]:hover {
 
 .attaquant-changement .information-player h3,
 .gardient-changement .information-player h3 {
-  color: #fff;
   font-size: 0.9rem;
 }
 
@@ -468,9 +454,31 @@ button[type="submit"]:hover {
 .attaquant-changement .delete-btn {
   position: absolute;
   top: 10%;
+  right: 10%;
   cursor: pointer;
   color: red;
   border: none;
-  right: 15%;
   background-color: transparent;
+}
+
+.gardient-card .edit-btn,
+.player-card .edit-btn,
+.gardient-changement .edit-btn,
+.attaquant-changement .edit-btn {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  cursor: pointer;
+  color: #345bf7;
+  border: none;
+  background-color: transparent;
+}
+
+.gardient-card .edit-btn:hover,
+.player-card .edit-btn:hover,
+.gardient-card .delete-btn:hover,
+.player-card .delete-btn:hover,
+.gardient-changement .delete-btn:hover,
+.attaquant-changement .delete-btn:hover {
+  zoom: 120%;
 }

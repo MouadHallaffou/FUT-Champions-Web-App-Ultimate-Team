@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/style.css" />
     <!-- Lien vers Font Awesome via CDNJS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <title>Ultimate Team</title>
   </head>
   <body">
@@ -18,7 +18,7 @@
      <div class="formation-section">
         <div class="terrain-image">
 
-            <div class="player-group">
+            <div class="player-group" id="formation-4-3-3">
                 <div class="attaquant-group">
                     <div class="attaquant" id="attaquant-left"></div>
                     <div class="attaquant" id="attaquant-milieu"></div>
@@ -26,12 +26,12 @@
                 </div>
                 <div class="milieu-group">
                     <div class="milieu" id="milieu-position-left"></div>
-                    <div class="milieu" id="milieu-position"></div>               
+                    <div class="milieu" id="milieu-position"></div>
                     <div class="milieu" id="milieu-position-right"></div>
                 </div>
                 <div class="defenseur-group">
-                    <div class="defenseur" id="left-defensseur"></div>        
-                    <div class="defenseur" id="milieu-defensseur-left"></div>            
+                    <div class="defenseur" id="left-defensseur"></div>
+                    <div class="defenseur" id="milieu-defensseur-left"></div>
                     <div class="defenseur" id="milieu-defensseur-right"></div>
                     <div class="defenseur" id="right-defensseur"></div>
                 </div>
@@ -39,11 +39,33 @@
                     <div class="gardient" id="gardient-position"></div>
                 </div>
             </div>
-            
+
+            <!-- <div class="player-group" id="formation-4-4-2" style="display: none;">
+                <div class="attaquant-group">
+                    <div class="attaquant" id="attaquant-left"></div>
+                    <div class="attaquant" id="attaquant-right"></div>
+                </div>
+                <div class="milieu-group">
+                    <div class="milieu" id="milieu-position-left"></div>
+                    <div class="attaquant" id="attaquant-milieu"></div>
+                    <div class="milieu" id="milieu-position-central"></div> 
+                    <div class="milieu" id="milieu-position-right"></div>
+                </div>
+                <div class="defenseur-group">
+                    <div class="defenseur" id="left-defensseur"></div>
+                    <div class="defenseur" id="milieu-defensseur-left"></div>
+                    <div class="defenseur" id="milieu-defensseur-right"></div>
+                    <div class="defenseur" id="right-defensseur"></div>
+                </div>
+                <div class="gardient-group">
+                    <div class="gardient" id="gardient-position"></div>
+                </div>
+            </div> -->
+ 
         </div>
 
         <div class="formation-form" id="playerForm">
-            <form action="">
+            <form action="" id="formulairePlayer">
                 <h2 class="titreFormulaire">Ajouter un joueur</h2>
         
                 <div class="form-row">
@@ -206,7 +228,7 @@
      <div class="change-section">
         <h2>Changement</h2>
         <div class="changement-content" id="changement-content">
-            <div class="attaquant-changement-group">
+            <div class="attaquant-changement-group" id="attaquant-changement-group">
                 <div class="attaquant-changement" id="attaquants-changements"></div>
                 <div class="attaquant-changement" id="attaquants-changements"></div>
                 <div class="attaquant-changement" id="attaquants-changements"></div>
@@ -217,7 +239,7 @@
                 <div class="milieus-changement" id="milieus-changements"></div>
             </div>
             <div class="defenseur-changement-group">
-                <div class="defenseur-changement" id="defenseur-changement"></div>
+                <div class="defenseur-changement" id="defenseur-changements"></div>
                 <div class="defenseur-changement" id="defenseur-changements"></div>
                 <div class="defenseur-changement" id="defenseur-changements"></div>
                 <div class="defenseur-changement" id="defenseur-changements"></div>
@@ -232,5 +254,8 @@
 
 <script src="./js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
   </body>
 </html>
+
+
