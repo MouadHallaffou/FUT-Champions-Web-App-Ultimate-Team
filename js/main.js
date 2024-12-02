@@ -31,9 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const changementContent = document.getElementById("changement-content");
   /* tableux pour stoker les doner des jours */
   let donner = JSON.parse(localStorage.getItem("players")) || [];
-  let donnerChangement =
-    JSON.parse(localStorage.getItem("playersChangement")) || [];
-
+  let donnerChangement = JSON.parse(localStorage.getItem("playersChangement")) || [];
   /* function pour changer les statistiques du formulaire selon le joueur */
   function playersPositionChange() {
     if (positionSelect.value === "GK") {
@@ -352,138 +350,163 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+  
   /* suprimer la card d'un jour depuis le terrain et leur infos dans le storage*/
   window.deletePlayer = function (index) {
     donner.splice(index, 1);
     enregistrementLocalStorage();
     displayPlayers();
   };
-  /* modifier les informations d'un joueur dans le terrain */
-  window.modifierCard = function (index) {
-    const player = donner[index];
-    document.getElementById("namePlayer").value = player.name;
-    document.getElementById("photoPlayer").value = player.photo;
-    document.getElementById("nationalityPlayer").value = player.nationality;
-    document.getElementById("drapeauPlayer").value = player.flag;
-    document.getElementById("clubPlayer").value = player.club;
-    document.getElementById("logoPlayer").value = player.logo;
-    document.getElementById("ratingPlayers").value = player.rating;
-    document.getElementById("pacePlayer").value = player.pace;
-    document.getElementById("shootingPlayer").value = player.shooting;
-    document.getElementById("passingPlayer").value = player.passing;
-    document.getElementById("dribblingPlayer").value = player.dribbling;
-    document.getElementById("defendingPlayer").value = player.defending;
-    document.getElementById("physicalPlayer").value = player.physical;
-    document.getElementById("positionPlayer").value = player.position;
 
-    btnAjoutPlayer.innerText = "Enregistre";
-    btnAjoutPlayer.style.backgroundColor = "#345bf7";
-    btnAjoutPlayer.onclick = (e) => {
-      e.preventDefault();
-      donner[index] = {
-        name: document.getElementById("namePlayer").value.trim(),
-        photo: document.getElementById("photoPlayer").value.trim(),
-        nationality: document.getElementById("nationalityPlayer").value.trim(),
-        flag: document.getElementById("drapeauPlayer").value.trim(),
-        club: document.getElementById("clubPlayer").value.trim(),
-        logo: document.getElementById("logoPlayer").value.trim(),
-        position: document.getElementById("positionPlayer").value.trim(),
-        rating: document.getElementById("ratingPlayers").value.trim(),
-        pace: document.getElementById("pacePlayer").value.trim(),
-        shooting: document.getElementById("shootingPlayer").value.trim(),
-        passing: document.getElementById("passingPlayer").value.trim(),
-        dribbling: document.getElementById("dribblingPlayer").value.trim(),
-        defending: document.getElementById("defendingPlayer").value.trim(),
-        physical: document.getElementById("physicalPlayer").value.trim(),
-      };
 
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "enregistre",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      enregistrementLocalStorage();
-      displayPlayers();
-      resetForlaireJoueur();
+
+
+
+
+
+// Fonction pour modifier les informations d'un joueur sur le terrain
+window.modifierCard = function (index) {
+  const player = donner[index];
+
+  // Remplir les champs du formulaire
+  document.getElementById("namePlayer").value = player.name;
+  document.getElementById("photoPlayer").value = player.photo;
+  document.getElementById("nationalityPlayer").value = player.nationality;
+  document.getElementById("drapeauPlayer").value = player.flag;
+  document.getElementById("clubPlayer").value = player.club;
+  document.getElementById("logoPlayer").value = player.logo;
+  document.getElementById("ratingPlayers").value = player.rating;
+  document.getElementById("pacePlayer").value = player.pace;
+  document.getElementById("shootingPlayer").value = player.shooting;
+  document.getElementById("passingPlayer").value = player.passing;
+  document.getElementById("dribblingPlayer").value = player.dribbling;
+  document.getElementById("defendingPlayer").value = player.defending;
+  document.getElementById("physicalPlayer").value = player.physical;
+  document.getElementById("positionPlayer").value = player.position;
+
+  // Afficher le bouton d'enregistrement pour le terrain
+  const btnEnregistre = document.getElementById("btnEnregistre");
+  btnEnregistre.style.display = "block";
+
+  // Ajouter un comportement au bouton d'enregistrement
+  btnEnregistre.onclick = (e) => {
+    e.preventDefault();
+    // Mettre à jour les informations du joueur
+    donner[index] = {
+      name: document.getElementById("namePlayer").value.trim(),
+      photo: document.getElementById("photoPlayer").value.trim(),
+      nationality: document.getElementById("nationalityPlayer").value.trim(),
+      flag: document.getElementById("drapeauPlayer").value.trim(),
+      club: document.getElementById("clubPlayer").value.trim(),
+      logo: document.getElementById("logoPlayer").value.trim(),
+      position: document.getElementById("positionPlayer").value.trim(),
+      rating: document.getElementById("ratingPlayers").value.trim(),
+      pace: document.getElementById("pacePlayer").value.trim(),
+      shooting: document.getElementById("shootingPlayer").value.trim(),
+      passing: document.getElementById("passingPlayer").value.trim(),
+      dribbling: document.getElementById("dribblingPlayer").value.trim(),
+      defending: document.getElementById("defendingPlayer").value.trim(),
+      physical: document.getElementById("physicalPlayer").value.trim(),
     };
+
+    // Afficher un message de succès
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Modification enregistrées",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+
+    enregistrementLocalStorage();
+    displayPlayers();
+    resetForlaireJoueur();
   };
-  // Fonction pour effacer les input du formulaire
-  function resetForlaireJoueur() {
-    document.getElementById("formulairePlayer").reset();
-    const btnAjoutPlayer = document.getElementById("btnAjoutPlayer");
-    btnAjoutPlayer.innerText = "Terrain";
-    btnAjoutPlayer.style.backgroundColor = "#20a904";
-    btnAjoutPlayer.onclick = null;
-  }
+};
 
-  window.modifierCardChangement = function (index) {
-    const player = donnerChangement[index];
-    const btnAjoutPlayerChangement = document.getElementById(
-      "btnAjoutPlayerChangement"
-    );
+// Fonction pour réinitialiser le formulaire et le bouton pour le terrain
+function resetForlaireJoueur() {
+  document.getElementById("formulairePlayer").reset();
+  const btnEnregistre = document.getElementById("btnEnregistre");
+  btnEnregistre.style.display = "none"; // Réinitialiser le bouton
+}
 
-    document.getElementById("namePlayer").value = player.name;
-    document.getElementById("photoPlayer").value = player.photo;
-    document.getElementById("nationalityPlayer").value = player.nationality;
-    document.getElementById("drapeauPlayer").value = player.flag;
-    document.getElementById("clubPlayer").value = player.club;
-    document.getElementById("logoPlayer").value = player.logo;
-    document.getElementById("ratingPlayers").value = player.rating;
-    document.getElementById("pacePlayer").value = player.pace;
-    document.getElementById("shootingPlayer").value = player.shooting;
-    document.getElementById("passingPlayer").value = player.passing;
-    document.getElementById("dribblingPlayer").value = player.dribbling;
-    document.getElementById("defendingPlayer").value = player.defending;
-    document.getElementById("physicalPlayer").value = player.physical;
-    document.getElementById("positionPlayer").value = player.position;
+// Fonction pour modifier les informations d'un joueur dans le changement
+window.modifierCardChangement = function (index) {
+  const player = donnerChangement[index];
 
-    btnAjoutPlayerChangement.innerText = "Enregistre";
-    btnAjoutPlayerChangement.style.backgroundColor = "#345bf7";
-    btnAjoutPlayerChangement.onclick = (e) => {
-      e.preventDefault();
-      donnerChangement[index] = {
-        name: document.getElementById("namePlayer").value.trim(),
-        photo: document.getElementById("photoPlayer").value.trim(),
-        nationality: document.getElementById("nationalityPlayer").value.trim(),
-        flag: document.getElementById("drapeauPlayer").value.trim(),
-        club: document.getElementById("clubPlayer").value.trim(),
-        logo: document.getElementById("logoPlayer").value.trim(),
-        position: document.getElementById("positionPlayer").value.trim(),
-        rating: document.getElementById("ratingPlayers").value.trim(),
-        pace: document.getElementById("pacePlayer").value.trim(),
-        shooting: document.getElementById("shootingPlayer").value.trim(),
-        passing: document.getElementById("passingPlayer").value.trim(),
-        dribbling: document.getElementById("dribblingPlayer").value.trim(),
-        defending: document.getElementById("defendingPlayer").value.trim(),
-        physical: document.getElementById("physicalPlayer").value.trim(),
-      };
+  // Remplir les champs du formulaire
+  document.getElementById("namePlayer").value = player.name;
+  document.getElementById("photoPlayer").value = player.photo;
+  document.getElementById("nationalityPlayer").value = player.nationality;
+  document.getElementById("drapeauPlayer").value = player.flag;
+  document.getElementById("clubPlayer").value = player.club;
+  document.getElementById("logoPlayer").value = player.logo;
+  document.getElementById("ratingPlayers").value = player.rating;
+  document.getElementById("pacePlayer").value = player.pace;
+  document.getElementById("shootingPlayer").value = player.shooting;
+  document.getElementById("passingPlayer").value = player.passing;
+  document.getElementById("dribblingPlayer").value = player.dribbling;
+  document.getElementById("defendingPlayer").value = player.defending;
+  document.getElementById("physicalPlayer").value = player.physical;
+  document.getElementById("positionPlayer").value = player.position;
 
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Enregistre",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+  // Afficher le bouton d'enregistrement pour le changement
+  const btnEnregistreChangement = document.getElementById("btnEnregistreChangement");
+  btnEnregistreChangement.style.display = "block";
 
-      enregistrementLocalStorage();
-      displayPlayers();
-      resetFormulaireJoueurChangement();
+  // Ajouter un comportement au bouton d'enregistrement
+  btnEnregistreChangement.onclick = (e) => {
+    e.preventDefault();
+    // Mettre à jour les informations du joueur
+    donnerChangement[index] = {
+      name: document.getElementById("namePlayer").value.trim(),
+      photo: document.getElementById("photoPlayer").value.trim(),
+      nationality: document.getElementById("nationalityPlayer").value.trim(),
+      flag: document.getElementById("drapeauPlayer").value.trim(),
+      club: document.getElementById("clubPlayer").value.trim(),
+      logo: document.getElementById("logoPlayer").value.trim(),
+      position: document.getElementById("positionPlayer").value.trim(),
+      rating: document.getElementById("ratingPlayers").value.trim(),
+      pace: document.getElementById("pacePlayer").value.trim(),
+      shooting: document.getElementById("shootingPlayer").value.trim(),
+      passing: document.getElementById("passingPlayer").value.trim(),
+      dribbling: document.getElementById("dribblingPlayer").value.trim(),
+      defending: document.getElementById("defendingPlayer").value.trim(),
+      physical: document.getElementById("physicalPlayer").value.trim(),
     };
-  };
 
-  // Fonction pour réinitialiser le formulaire et le bouton
-  function resetFormulaireJoueurChangement() {
-    document.getElementById("formulairePlayer").reset();
-    const btnAjoutPlayerChangement = document.getElementById(
-      "btnAjoutPlayerChangement"
-    );
-    btnAjoutPlayerChangement.innerText = "Changement";
-    btnAjoutPlayerChangement.style.backgroundColor = "#20a904";
-    btnAjoutPlayerChangement.onclick = null;
-  }
+    // Afficher un message de succès
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Modifications enregistrées (Changement)",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+
+    enregistrementLocalStorage();
+    ChangementDisplay(); // Affichage des joueurs dans la liste des changements
+    resetFormulaireJoueurChangement();
+  };
+};
+
+// Fonction pour réinitialiser le formulaire et le bouton pour les changements
+function resetFormulaireJoueurChangement() {
+  document.getElementById("formulairePlayer").reset();
+  const btnEnregistreChangement = document.getElementById("btnEnregistreChangement");
+  btnEnregistreChangement.style.display = "none"; // Réinitialiser le bouton
+}
+
+
+
+
+
+
+
+
+
+
 
   // function pour enregistrer les joueurs dans local storage
   function enregistrementLocalStorage() {
@@ -508,7 +531,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const playerValue = AvoirPlayerValues();
 
     const verifierExistePosition = donner.some(
-      (p) => p.position === playerValue.position
+      (poss) => poss.position === playerValue.position
     );
     if (verifierExistePosition) {
       Swal.fire({
@@ -651,7 +674,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* function change formations */
-
 // const formation = document.getElementById('formation');
 // const formation433 = document.getElementById('formation-4-3-3');
 // const formation442 = document.getElementById('formation-4-4-2');

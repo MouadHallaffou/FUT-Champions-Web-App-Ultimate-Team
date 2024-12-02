@@ -85,7 +85,7 @@ body {
 .player-group .milieu:hover,
 .player-group .defenseur:hover,
 .player-group .gardient:hover {
-  filter: saturate(3);
+  filter: saturate(2);
 }
 
 .player-group .attaquant span,
@@ -234,10 +234,10 @@ select:focus {
   justify-content: space-evenly;
 }
 
-.button_ajouter button[type="submit"] {
+.button_ajouter .btnSave{
   margin-top: 2rem;
-  padding: 1.2rem 2rem;
-  background-color: #20a904;
+  padding: 1rem 1rem;
+  background-color: #0697fe;
   color: #fff;
   font-size: 16px;
   font-weight: bold;
@@ -245,18 +245,29 @@ select:focus {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  align-self: center;
 }
 
-.button_ajouter button[type="submit"] i {
+.button_ajouter button{
+  margin-top: 2rem;
+  padding: 1rem 1rem;
+  background-color: #20a904;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button_ajouter button i{
   font-size: 1.5rem;
   color: #f40404;
   transition: font-size 0.3s ease, color 0.3s ease;
 }
 
-.button_ajouter button[type="submit"]:hover i {
+.button_ajouter button:hover i {
   color: #ff6b6b;
+  font-size:1.6rem;
 }
 
 button[type="submit"]:hover {
