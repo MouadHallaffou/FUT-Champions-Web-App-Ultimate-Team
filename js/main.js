@@ -404,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function resetForlaireJoueur() {
     document.getElementById("formulairePlayer").reset();
     const btnEnregistre = document.getElementById("btnEnregistre");
-    btnEnregistre.style.display = "none"; // Réinitialiser le bouton
+    btnEnregistre.style.display = "none";
   }
 
   // Fonction pour modifier les informations d'un joueur dans le changement
@@ -428,9 +428,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("positionPlayer").value = player.position;
 
     // Afficher le bouton d'enregistrement pour le changement
-    const btnEnregistreChangement = document.getElementById(
-      "btnEnregistreChangement"
-    );
+    const btnEnregistreChangement = document.getElementById("btnEnregistreChangement");
     btnEnregistreChangement.style.display = "block";
 
     btnEnregistreChangement.onclick = (e) => {
@@ -467,13 +465,13 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   };
 
-  // Fonction pour réinitialiser le formulaire et le bouton pour les changements
+  // Fonction pour réinitialiser le formulaire changements
   function resetFormulaireJoueurChangement() {
     document.getElementById("formulairePlayer").reset();
     const btnEnregistreChangement = document.getElementById(
       "btnEnregistreChangement"
     );
-    btnEnregistreChangement.style.display = "none"; // Réinitialiser le bouton
+    btnEnregistreChangement.style.display = "none";
   }
 
   // function pour enregistrer les joueurs dans local storage
