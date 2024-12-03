@@ -337,14 +337,21 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* suprimer la card d'un jour depuis le terrain et leur infos dans le storage*/
-  window.deletePlayer = function (index) {
+  deletePlayer = function (index) {
     donner.splice(index, 1);
     enregistrementLocalStorage();
     displayPlayers();
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Supprition avec succes",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
 
   // Fonction pour modifier les informations joueur sur le terrain
-  window.modifierCard = function (index) {
+  modifierCard = function (index) {
     const player = donner[index];
     document.getElementById("namePlayer").value = player.name;
     document.getElementById("photoPlayer").value = player.photo;
@@ -367,6 +374,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Ajouter un comportement au bouton d'enregistrement
     btnEnregistre.onclick = (e) => {
       e.preventDefault();
+      if(!validationFormulaire())
+        return;
       // Mettre à jour les informations du joueur
       donner[index] = {
         name: document.getElementById("namePlayer").value.trim(),
@@ -408,7 +417,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Fonction pour modifier les informations d'un joueur dans le changement
-  window.modifierCardChangement = function (index) {
+  modifierCardChangement = function (index) {
     const player = donnerChangement[index];
 
     // Remplir les champs du formulaire
@@ -632,10 +641,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   
   /* function suprimer un joueur depuis changement et local storage */
-  window.deleteChangement = function (index) {
+  deleteChangement = function (index) {
     donnerChangement.splice(index, 1);
     enregistrementLocalStorage();
     ChangementDisplay();
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Supprition avec succes",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
   displayPlayers();
   ChangementDisplay();
