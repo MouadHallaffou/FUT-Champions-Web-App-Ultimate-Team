@@ -31,7 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const changementContent = document.getElementById("changement-content");
   /* tableux pour stoker les doner des jours */
   let donner = JSON.parse(localStorage.getItem("players")) || [];
-  let donnerChangement = JSON.parse(localStorage.getItem("playersChangement")) || [];
+  let donnerChangement =
+    JSON.parse(localStorage.getItem("playersChangement")) || [];
   /* function pour changer les statistiques du formulaire selon le joueur */
   function playersPositionChange() {
     if (positionSelect.value === "GK") {
@@ -49,68 +50,210 @@ document.addEventListener("DOMContentLoaded", function () {
   function validationFormulaire() {
     let valid = true;
     const playerValue = {
-        name: namePlayer.value.trim(),
-        photo: photoPlayer.value.trim(),
-        nationality: nationalityPlayer.value.trim(),
-        flag: drapeauPlayer.value.trim(),
-        club: clubPlayer.value.trim(),
-        logo: logoPlayer.value.trim(),
-        position: positionSelect.value.trim(),
-        rating: ratingPlayer.value.trim(),
-        pace: pacePlayer.value.trim(),
-        shooting: shootingPlayer.value.trim(),
-        passing: passingPlayer.value.trim(),
-        dribbling: dribblingPlayer.value.trim(),
-        defending: defendingPlayer.value.trim(),
-        physical: physicalPlayer.value.trim(),
+      name: namePlayer.value.trim(),
+      photo: photoPlayer.value.trim(),
+      nationality: nationalityPlayer.value.trim(),
+      flag: drapeauPlayer.value.trim(),
+      club: clubPlayer.value.trim(),
+      logo: logoPlayer.value.trim(),
+      position: positionSelect.value.trim(),
+      rating: ratingPlayer.value.trim(),
+      pace: pacePlayer.value.trim(),
+      shooting: shootingPlayer.value.trim(),
+      passing: passingPlayer.value.trim(),
+      dribbling: dribblingPlayer.value.trim(),
+      defending: defendingPlayer.value.trim(),
+      physical: physicalPlayer.value.trim(),
     };
     // Paramètres spécifiques pour les gardiens de but
     if (playerValue.position === "GK") {
-        playerValue.pace = divingGK.value.trim();
-        playerValue.shooting = handlingGK.value.trim();
-        playerValue.passing = kickingGK.value.trim();
-        playerValue.dribbling = reflexesGK.value.trim();
-        playerValue.defending = speedGK.value.trim();
-        playerValue.physical = positioningGK.value.trim();
+      playerValue.pace = divingGK.value.trim();
+      playerValue.shooting = handlingGK.value.trim();
+      playerValue.passing = kickingGK.value.trim();
+      playerValue.dribbling = reflexesGK.value.trim();
+      playerValue.defending = speedGK.value.trim();
+      playerValue.physical = positioningGK.value.trim();
     }
 
     const regExpress = {
-        nameRegex: /(^[a-zA-Z\s]{0,30}$)/,
-        urlregex: /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/,
-        statistiquesRegex: /^[1-9][0-9]$/,
+      nameRegex: /(^[a-zA-Z\s]{0,30}$)/,
+      urlregex:
+        /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/,
+      statistiquesRegex: /^[1-9][0-9]$/,
     };
-
+    ///////////////////////////////////////////////////////////////////////////
     const erreurMessages = document.querySelectorAll(".erreur-message");
     erreurMessages.forEach((msg) => (msg.style.display = "none"));
-
-    const validateField = (fieldValue, regex, fieldElement) => {
-        if (!regex.test(fieldValue) || fieldValue === "") {
-            valid = false;
-            fieldElement.style.border = "2px solid red";
-            fieldElement.nextElementSibling.style.display = "block";
-        } else {
-            fieldElement.style.border = "2px solid #20a904";
-            fieldElement.nextElementSibling.style.display = "none";
-        }
-    };
-
-    // Validation des champs
-    validateField(playerValue.name, regExpress.nameRegex, namePlayer);
-    validateField(playerValue.club, regExpress.nameRegex, clubPlayer);
-    validateField(playerValue.nationality, regExpress.nameRegex, nationalityPlayer);
-    validateField(playerValue.photo, regExpress.urlregex, photoPlayer);
-    validateField(playerValue.flag, regExpress.urlregex, drapeauPlayer);
-    validateField(playerValue.logo, regExpress.urlregex, logoPlayer);
-    validateField(playerValue.rating, regExpress.statistiquesRegex, ratingPlayer);
-    validateField(playerValue.pace, regExpress.statistiquesRegex, pacePlayer);
-    validateField(playerValue.shooting, regExpress.statistiquesRegex, shootingPlayer);
-    validateField(playerValue.passing, regExpress.statistiquesRegex, passingPlayer);
-    validateField(playerValue.dribbling, regExpress.statistiquesRegex, dribblingPlayer);
-    validateField(playerValue.defending, regExpress.statistiquesRegex, defendingPlayer);
-    validateField(playerValue.physical, regExpress.statistiquesRegex, physicalPlayer);
-
+    if (
+      !regExpress.nameRegex.test(playerValue.name) ||
+      playerValue.name === ""
+    ) {
+      valid = false;
+      namePlayer.style.border = "2px solid red";
+      document.querySelector(".erreur-message").style.display = "block";
+    } else {
+      namePlayer.style.border = "2px solid #20a904";
+    }
+    if (
+      !regExpress.nameRegex.test(playerValue.club) ||
+      playerValue.club === ""
+    ) {
+      valid = false;
+      clubPlayer.style.border = "2px solid red";
+      clubPlayer.nextElementSibling.style.display = "block";
+    } else {
+      clubPlayer.style.border = "2px solid #20a904";
+      clubPlayer.nextElementSibling.style.display = "none";
+    }
+    if (
+      !regExpress.nameRegex.test(playerValue.nationality) ||
+      playerValue.nationality === ""
+    ) {
+      valid = false;
+      nationalityPlayer.style.border = "2px solid red";
+      nationalityPlayer.nextElementSibling.style.display = "block";
+    } else {
+      nationalityPlayer.style.border = "2px solid #20a904";
+      nationalityPlayer.nextElementSibling.style.display = "none";
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    if (
+      !regExpress.urlregex.test(playerValue.photo) ||
+      playerValue.photo === ""
+    ) {
+      valid = false;
+      photoPlayer.style.border = "2px solid red";
+      photoPlayer.nextElementSibling.style.display = "block";
+    } else {
+      photoPlayer.nextElementSibling.style.display = "none";
+      photoPlayer.style.border = "2px solid #20a904";
+    }
+    if (
+      !regExpress.urlregex.test(playerValue.flag) ||
+      playerValue.flag === ""
+    ) {
+      valid = false;
+      drapeauPlayer.style.border = "2px solid red";
+      drapeauPlayer.nextElementSibling.style.display = "block";
+    } else {
+      drapeauPlayer.nextElementSibling.style.display = "none";
+      drapeauPlayer.style.border = "2px solid #20a904";
+    }
+    if (
+      !regExpress.urlregex.test(playerValue.logo) ||
+      playerValue.logo === ""
+    ) {
+      valid = false;
+      logoPlayer.style.border = "2px solid red";
+      logoPlayer.nextElementSibling.style.display = "block";
+    } else {
+      logoPlayer.nextElementSibling.style.display = "none";
+      logoPlayer.style.border = "2px solid #20a904";
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////
+    if (
+      !regExpress.statistiquesRegex.test(playerValue.rating) ||
+      playerValue.rating === ""
+    ) {
+      valid = false;
+      ratingPlayer.style.border = "2px solid red";
+      ratingPlayer.nextElementSibling.style.display = "block";
+    } else {
+      ratingPlayer.style.border = "2px solid #20a904";
+      ratingPlayer.nextElementSibling.style.display = "none";
+    }
+    if (
+      !regExpress.statistiquesRegex.test(playerValue.pace) ||
+      playerValue.pace === ""
+    ) {
+      valid = false;
+      pacePlayer.style.border = "2px solid red";
+      divingGK.style.border = "2px solid red";
+      pacePlayer.nextElementSibling.style.display = "block";
+      divingGK.nextElementSibling.style.display = "block";
+    } else {
+      pacePlayer.style.border = "2px solid #20a904";
+      divingGK.style.border = "2px solid #20a904";
+      pacePlayer.nextElementSibling.style.display = "none";
+      divingGK.nextElementSibling.style.display = "none";
+    }
+    if (
+      !regExpress.statistiquesRegex.test(playerValue.shooting) ||
+      playerValue.shooting === ""
+    ) {
+      valid = false;
+      shootingPlayer.style.border = "2px solid red";
+      handlingGK.style.border = "2px solid red";
+      shootingPlayer.nextElementSibling.style.display = "block";
+      handlingGK.nextElementSibling.style.display = "block";
+    } else {
+      shootingPlayer.style.border = "2px solid #20a904";
+      handlingGK.style.border = "2px solid #20a904";
+      shootingPlayer.nextElementSibling.style.display = "none";
+      handlingGK.nextElementSibling.style.display = "none";
+    }
+    if (
+      !regExpress.statistiquesRegex.test(playerValue.passing) ||
+      playerValue.passing === ""
+    ) {
+      valid = false;
+      passingPlayer.style.border = "2px solid red";
+      kickingGK.style.border = "2px solid red";
+      passingPlayer.nextElementSibling.style.display = "block";
+      kickingGK.nextElementSibling.style.display = "block";
+    } else {
+      passingPlayer.style.border = "2px solid #20a904";
+      kickingGK.style.border = "2px solid #20a904";
+      passingPlayer.nextElementSibling.style.display = "none";
+      kickingGK.nextElementSibling.style.display = "none";
+    }
+    if (
+      !regExpress.statistiquesRegex.test(playerValue.dribbling) ||
+      playerValue.dribbling === ""
+    ) {
+      valid = false;
+      dribblingPlayer.style.border = "2px solid red";
+      reflexesGK.style.border = "2px solid red";
+      dribblingPlayer.nextElementSibling.style.display = "block";
+      reflexesGK.nextElementSibling.style.display = "block";
+    } else {
+      dribblingPlayer.style.border = "2px solid #20a904";
+      reflexesGK.style.border = "2px solid #20a904";
+      dribblingPlayer.nextElementSibling.style.display = "none";
+      reflexesGK.nextElementSibling.style.display = "none";
+    }
+    if (
+      !regExpress.statistiquesRegex.test(playerValue.defending) ||
+      playerValue.defending === ""
+    ) {
+      valid = false;
+      defendingPlayer.style.border = "2px solid red";
+      speedGK.style.border = "2px solid red";
+      defendingPlayer.nextElementSibling.style.display = "block";
+      speedGK.nextElementSibling.style.display = "block";
+    } else {
+      defendingPlayer.style.border = "2px solid #20a904";
+      speedGK.style.border = "2px solid #20a904";
+      defendingPlayer.nextElementSibling.style.display = "none";
+      speedGK.nextElementSibling.style.display = "none";
+    }
+    if (
+      !regExpress.statistiquesRegex.test(playerValue.physical) ||
+      playerValue.physical === ""
+    ) {
+      valid = false;
+      physicalPlayer.style.border = "2px solid red";
+      positioningGK.style.border = "2px solid red";
+      physicalPlayer.nextElementSibling.style.display = "block";
+      positioningGK.nextElementSibling.style.display = "block";
+    } else {
+      physicalPlayer.style.border = "2px solid #20a904";
+      positioningGK.style.border = "2px solid #20a904";
+      physicalPlayer.nextElementSibling.style.display = "none";
+      positioningGK.nextElementSibling.style.display = "none";
+    }
     return valid;
-}
+  }
   /* afficher les les cards des joueurs dans le terrains */
   function displayPlayers() {
     const valueSelected = {
@@ -294,7 +437,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("positionPlayer").value = player.position;
 
     // Afficher le bouton d'enregistrement pour le changement
-    const btnEnregistreChangement = document.getElementById("btnEnregistreChangement");
+    const btnEnregistreChangement = document.getElementById(
+      "btnEnregistreChangement"
+    );
     btnEnregistreChangement.style.display = "block";
 
     btnEnregistreChangement.onclick = (e) => {
@@ -326,7 +471,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       enregistrementLocalStorage();
-      ChangementDisplay(); 
+      ChangementDisplay();
       resetFormulaireJoueurChangement();
     };
   };
@@ -495,8 +640,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       changementContent.appendChild(affichageChangementplayer);
     });
-  } 
-  
+  }
+
   /* function suprimer un joueur depuis changement et local storage */
   deleteChangement = function (index) {
     donnerChangement.splice(index, 1);
@@ -518,17 +663,23 @@ document.addEventListener("DOMContentLoaded", function () {
 /////////////////// Drag end droooppp////////////////
 /////////////////////////////////////////////////////
 document.addEventListener("DOMContentLoaded", function () {
-  const sortableGroups = [".attaquant-group", ".milieu-group", ".defenseur-group", ".gardient-group", ".changement-content"];
-  sortableGroups.forEach(selector => {
-      const element = document.querySelector(selector);
-      if (element) {
-          new Sortable(element, {
-              animation: 350,
-              chosenClass: "sortable-chosen",
-              dragClass: "sortable-drag",
-              group: "shared",
-              swap: true,
-          });
-      }
+  const sortableGroups = [
+    ".attaquant-group",
+    ".milieu-group",
+    ".defenseur-group",
+    ".gardient-group",
+    ".changement-content",
+  ];
+  sortableGroups.forEach((selector) => {
+    const element = document.querySelector(selector);
+    if (element) {
+      new Sortable(element, {
+        animation: 350,
+        chosenClass: "sortable-chosen",
+        dragClass: "sortable-drag",
+        group: "shared",
+        swap: true,
+      });
+    }
   });
 });
